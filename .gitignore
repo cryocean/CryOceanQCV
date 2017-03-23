@@ -1,0 +1,38 @@
+# Directories to ignore
+logfiles/
+figures/
+research/
+
+# File types to ignore
+# Compiled code
+*.pyc
+
+# data files
+code/GOP/sla/
+groundTracks/
+Groundtrack_*.mat
+Groundtrack_*.txt
+gshhs*.mat
+DTU*.mat
+
+# log files
+*.log
+
+# Graphics files
+*.eps
+*.png
+*.jpg
+*.tif
+# Except the logos and inside html manuals!
+!logo_images/*.jpg
+!logo_images/originals/*.jpg
+!code/validation/code_valid/gsw_matlab_v3_04/html/*.jpg
+!code/validation/code_valid/gsw_matlab_v3_04/html/*.png
+
+# Any backup files from matlab
+*\~
+
+# MacOS & Windows indexing
+.DS_Store
+Thumbs.db
+\._*

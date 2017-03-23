@@ -1,0 +1,5 @@
+MAILTO="francisco.calafat@noc.ac.uk"
+# cron jobs to generate daily report
+00 19,7 * * * python /noc/users/fmc1q07/QCV_Cryo2/code/get_ftp_data/ftp_getDataLatency.py > /noc/users/fmc1q07/getData.log
+30 8 * * * python /noc/users/fmc1q07/QCV_Cryo2/code/allJobs.py > /noc/users/fmc1q07/allJobs.log
+30 9 * * * python /noc/users/fmc1q07/QCV_Cryo2/code/ftp_upDayReport.py

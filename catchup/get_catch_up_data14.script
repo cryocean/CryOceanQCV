@@ -1,0 +1,24 @@
+#!/bin/csh
+
+foreach year ( 2014 )
+    foreach month ( 01 02 03 04)
+ #   foreach month (01 02 03 04 05 06 07 08 09 10 11 12)
+# check folder exists for global for this month
+	if ( ! -e     /noc/mpoc/cryo/cryosat/catchup/SIR_GOP_L2/$year/$month ) then
+		mkdir /noc/mpoc/cryo/cryosat/catchup/SIR_GOP_L2/$year/$month
+        endif
+ 	cd /noc/mpoc/cryo/cryosat/catchup/SIR_GOP_L2/temp
+ 	wget -m -A "CS_LTA__SIR_GOP_2__*.*" --ftp-user=cryosat353 --ftp-password=NoHtpQvL ftp://science-pds.cryosat.esa.int/SIR_GOP_L2/$year/$month
+# 	# now move files and rename to top directory
+ 	cd science-pds.cryosat.esa.int/SIR_GOP_L2/$year/$month
+ 	foreach i (`ls -1 *`)
+ 	    mv ${i} /noc/mpoc/cryo/cryosat/catchup/SIR_GOP_L2/$year/$month/
+ 	end
+    end
+end
+
+
+
+
+
+exit
