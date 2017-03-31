@@ -137,8 +137,8 @@ kempty = cellfun(@isempty,v);
 v(kempty) = [];
 v = cell2mat(v); % array containing structure for each file [nfiles x 1]
 % Find the day for each 1Hz & each 20Hz record
-kday_01 = cell(v,1);
-kday_20 = cell(v,1);
+kday_01 = cell(length(v),1);
+kday_20 = cell(length(v),1);
 n_01 = length([v(:).time]);
 n_20 = length([v(:).hi_time]);
 for j=1:length(v)
