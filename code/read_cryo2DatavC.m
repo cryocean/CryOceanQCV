@@ -1,5 +1,5 @@
-function read_cryo2DatavC
-%function read_cryo2DatavC(in_dir,out_dir,start,stop)
+% function read_cryo2DatavC
+function read_cryo2DatavC(in_dir,out_dir,start,stop)
 % Read Cryosat2 Baseline C NetCDF data and save to file as structure.
 % The data are saved by day: one file per day.
 %
@@ -18,15 +18,14 @@ function read_cryo2DatavC
 %
 %
 %% Check input arguments
-
-% in_dir='/noc/mpoc/cryo/cryosat/SIR_FDM_L2/';
-% out_dir='noc/mpoc/cryo/cryosat/daily_data/';
-% in_dir='/noc/mpoc/cryo/TDS_March_2017/SIR_IOP_L2/';
+% in_dir='/noc/mpoc/cryo/TDS_March_2017/SIR_IOP_L2';
 % out_dir='/noc/mpoc/cryo/TDS_testout/';
-in_dir ='/Users/Shared/Data/tmp/SIR_IOP_L2/';
-out_dir='/Users/Shared/Data/tmp/TDS_testout/';
-start = '20120603';
-stop  = '20120604';
+% % in_dir='/noc/mpoc/cryo/TDS_March_2017/SIR_IOP_L2/';
+% % out_dir='/noc/mpoc/cryo/TDS_testout/';
+% % in_dir ='/Users/Shared/Data/tmp/SIR_IOP_L2/';
+% % out_dir='/Users/Shared/Data/tmp/TDS_testout/';
+% start = '20120603';
+% stop  = '20120604';
 
 % Input and output directories must exist and end in '/'
 if ~strcmp(in_dir(end) ,'/'), in_dir  = [in_dir  '/']; end
@@ -75,7 +74,8 @@ for i=1:length(dirs)
   if exist([in_dir dirs{i}],'dir') % skip month if there is no directory
     % Set filename search pattern based on directory name
     if strcmp(in_dir(end-10:end-1),'SIR_FDM_L2')  % L2 FDM direcotory
-      fn = dir([in_dir dirs{i} '/CS*001.DBL']); % list files in directory
+     not checked for FDM
+        fn = dir([in_dir dirs{i} '/CS*001.DBL']); % list files in directory
       fn = struct2cell(fn);
       fn = fn(1,:);
     else % there may be several versions of the same file, we use the latest version
