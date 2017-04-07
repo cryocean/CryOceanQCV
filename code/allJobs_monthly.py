@@ -10,11 +10,25 @@ from ftp_upMonthlyReport import ftp_upMonthlyReport
 matlab_path = "/nerc/packages/matlab/2013a/bin/matlab" # changed 24 Jan 2017
 #matlab_path = "/noc/packages/linux_emt64/matlab/v2013a/bin/matlab"
 myfun_path = "/noc/users/cryo/QCV_Cryo2/code/"
+configDateFile = "/noc/users/cryo/QCV_Cryo2/code/monthlyconfig.txt"  # defines start and stop dates
 
 
 def main():
-    t0 = 'Nov-2016'
-    tf = 'Nov-2016'
+  #   t0 = 'Nov-2016'
+   #  tf = 'Nov-2016'
+  # read start and stop dates from file specified as configDateFile
+    i=0
+    f=open(configDateFile)
+    for line in f:
+        if i == 0:
+            t0 = line.rstrip('\n')
+        elif i == 1:
+            tf = line.rstrip('\n')
+        i+=1
+
+    print 'Starting in ' + t0
+    print 'Ending in ' , tf
+
     dates = [t0]
     ct = 0
     while dates[ct] != tf:
