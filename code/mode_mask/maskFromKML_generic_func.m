@@ -1,9 +1,14 @@
 function maskFromKML_generic_func(version)
-
+do not use
 % input version as string
 dir1 = '/noc/users/cryo/QCV_Cryo2/code/mode_mask/';
-fn = dir([dir1 'Mask'  version '.kml']);
+fn = dir([dir1 'mask'  version '.kml']);
 version2 = version ;
+
+
+addpath ~/matlabfns/
+
+ s_xml = kml2struct( fn );
 
 
 % if file doesn't exists then create it

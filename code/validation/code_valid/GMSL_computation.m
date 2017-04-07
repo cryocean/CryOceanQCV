@@ -135,7 +135,7 @@ gmsl = gmsl - mean(gmsl(valid_c2_gmsl & valid_ucb_gmsl)) + mean_ucb ;
 
 % repeat for PODAAC data (which is GSFC)
 yy = load([path2GMSL,'GMSL_GODDARD_2014_SEAS.txt']); % GMSL PO.DAAC
-% see ftp://podaac.jpl.nasa.gov/allData/merged_alt/L2/TP_J1_OSTM/global_mean_sea_level/GMSL_TPJAOS_199209_201609.txt
+% see ftp://podaac.jpl.nasa.gov/allData/merged_alt/L2/TP_J1_OSTM/global_mean_sea_level/
 gmsl3_goddard = yy(:,6);
 % gmsl3_goddard11 = yy(:,11);
 

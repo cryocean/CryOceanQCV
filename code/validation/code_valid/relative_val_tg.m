@@ -64,7 +64,13 @@ for ii = 1:length(nstation)
     % ------------------------------- read data -------------------------------
     [xtg,ytg,ztg2,ttg] = read_tgData_ascii(nstation(ii)); % read tide gauge data
     if strcmp(detided,'yes')
+        % % % % % % % %         % temp step
+        %         save /noc/users/cryo/QCV_Cryo2/code/validation/code_valid/bugchecker2.mat ii path1
+        %         disp(['ii is ' num2str(ii)])
+        work_path = pwd ;
+        cd /noc/users/cryo/QCV_Cryo2/code/validation/code_valid/
         [ztg,~] = detide(ztg2,ttg); % remove tide
+        cd(work_path); clear work_path
     end
     ztg = ztg./1000;
     ztg2 = ztg2./1000;
@@ -442,7 +448,7 @@ set(gca,'LineWidth',1,'FontSize',10,'XTick',dtt, ...
     'XTickLabel',timeLabel,'YTick',-200:dl:200)
 xlim([min(t2)-5 max(t2)+5])
 ylim([ymin-2 ymax+2])
-box 
+box
 rotateXLabels(gca,45)
 set(gcf, 'PaperPositionMode', 'manual')
 print('-depsc',[dir_out 'Fig_ssha_timeSeries_detided_1'],'-r300')
@@ -498,7 +504,7 @@ set(gca,'LineWidth',1,'FontSize',10,'XTick',dtt, ...
     'XTickLabel',timeLabel,'YTick',-200:dl:200)
 xlim([min(t2)-5 max(t2)+5])
 ylim([ymin-2 ymax+2])
-box 
+box
 rotateXLabels(gca,45)
 set(gcf, 'PaperPositionMode', 'manual')
 print('-depsc',[dir_out 'Fig_ssha_timeSeries_detided_2'],'-r300')
@@ -706,7 +712,7 @@ set(gca,'LineWidth',1,'FontSize',10,'XTick',dtt, ...
     'XTickLabel',timeLabel,'YTick',-200:dl:200)
 xlim([min(t2)-5 max(t2)+5])
 ylim([ymin-5 ymax+5])
-box 
+box
 rotateXLabels(gca,45)
 set(gcf, 'PaperPositionMode', 'manual')
 print('-depsc',[dir_out 'Fig_ssha_timeSeries_1'],'-r300')
@@ -762,7 +768,7 @@ set(gca,'LineWidth',1,'FontSize',10,'XTick',dtt, ...
     'XTickLabel',timeLabel,'YTick',-240:dl:240)
 xlim([min(t2)-5 max(t2)+5])
 ylim([ymin-5 ymax+5])
-box 
+box
 rotateXLabels(gca,45)
 set(gcf, 'PaperPositionMode', 'manual')
 print('-depsc',[dir_out 'Fig_ssha_timeSeries_2'],'-r300')

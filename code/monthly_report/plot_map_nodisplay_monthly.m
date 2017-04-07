@@ -29,7 +29,9 @@ geoshow(ha,lakes, 'FaceColor', [1 1 1],'EdgeColor',[1 1 1])
 % ----------------------------- with scatter ------------------------------
 colormap(linspecer);
 if xover
-    scatterm(ha,yi,xi,10,zi,'s','filled');
+%     scatterm(ha,yi,xi,10,zi,'s','filled');
+    scatterm(ha,yi,xi,5,zi,'s','filled');% CHANGED 7 APRIL
+
 else
     scatterm(ha,yi,xi,1,zi,'o');
 end

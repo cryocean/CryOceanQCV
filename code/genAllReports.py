@@ -16,10 +16,10 @@ myfun_path = "/noc/users/cryo/QCV_Cryo2/code/"
 #date_FDMf = datetime.date(2016,1,4)
 #date_IOPf = datetime.date(2015,12,31)
 
-date_FDM0 = datetime.date(2017,2,17)
-date_FDMf = datetime.date(2017,2,18)
-date_IOP0 = datetime.date(2017,2,14)
-date_IOPf = datetime.date(2017,2,15)
+date_FDM0 = datetime.date(2017,3,21)
+date_FDMf = datetime.date(2017,3,28)
+date_IOP0 = datetime.date(2017,3,18)
+date_IOPf = datetime.date(2017,3,25)
 
 
 
