@@ -11,17 +11,61 @@ from ftp_upDayReport import ftp_upDayReport
 matlab_path = "/nerc/packages/matlab/2013a/bin/matlab"
 
 myfun_path = "/noc/users/cryo/QCV_Cryo2/code/"
+
+configDateFile = "/noc/users/cryo/QCV_Cryo2/code/dailyconfig.txt"  # defines start and stop dates
+
+
 #date_FDM0 = datetime.date(2016,1,4)
 #date_IOP0 = datetime.date(2015,12,31)
 #date_FDMf = datetime.date(2016,1,4)
 #date_IOPf = datetime.date(2015,12,31)
 
-date_FDM0 = datetime.date(2017,3,21)
-date_FDMf = datetime.date(2017,3,28)
-date_IOP0 = datetime.date(2017,3,18)
-date_IOPf = datetime.date(2017,3,25)
+# to use config file dailyconfig.txt use split to change the arguments on a given line
+
+# read start and stop dates from file specified as configDateFile
+i=0
+f=open(configDateFile)
+for line in f:
+    if i == 0:
+        t0 = line.rstrip('\n')
+    elif i == 1:
+        t1 = line.rstrip('\n')
+    elif i == 2:
+        t2 = line.rstrip('\n')
+    elif i == 3:
+        t3 = line.rstrip('\n')
+    i+=1
+
+t0 = t0.split(',')
+t1 = t1.split(',')
+t2 = t2.split(',')
+t3 = t3.split(',')
+
+#x1= int(float(t0[0]))
+#x2 =  int(float(t0[1]))
+#x3 =  int(float(t0[2]))
+
+#x4 = int(float(t0))
+#date_FDM0 = datetime.date(x1 , x2,x3)
+date_FDM0 = datetime.date(int(float(t0[0])),int(float(t0[1])),int(float(t0[2])))
+date_FDMf = datetime.date(int(float(t1[0])),int(float(t1[1])),int(float(t1[2])))
+date_IOP0 = datetime.date(int(float(t2[0])),int(float(t2[1])),int(float(t2[2])))
+date_IOPf = datetime.date(int(float(t3[0])),int(float(t3[1])),int(float(t3[2])))
 
 
+print 'FDM starts ' , date_FDM0 , ' and finshes ' , date_FDMf
+print 'IOP starts ' , date_IOP0 , ' and finishes ', date_IOPf
+
+
+#date_FDM0 = datetime.date(2017,3,21)
+#date_FDMf = datetime.date(2017,3,28)
+#date_IOP0 = datetime.date(2017,3,18)
+#date_IOPf = datetime.date(2017,3,25)
+
+#date_FDM0 = datetime.date(t0)
+#date_FDMf = datetime.date(t1)
+#date_IOP0 = datetime.date(t2)
+#date_IOPf = datetime.date(t3)
 
 n_days_FDM = (date_FDMf - date_FDM0).days + 1
 n_days_IOP = (date_IOPf - date_IOP0).days + 1
