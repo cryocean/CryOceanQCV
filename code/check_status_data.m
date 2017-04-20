@@ -1,4 +1,4 @@
-clear all
+clear;close  all;
 path_code = '/noc/users/cryo/QCV_Cryo2/code/';
 addpath /noc/users/cryo/QCV_Cryo2/code/validation/code_valid/
 path_return = pwd;
@@ -49,20 +49,23 @@ data_set = dir([path3 'IMOS*']);
 data_set = struct2cell(data_set);
 data_set = data_set(1,:);
 
-path2 = [path3,data_set{1} '/'];
-fn = dir([path2 '*nc']);
-fn = struct2cell(fn);
-fn = fn(1,:)';
-fn = fn{end};
-fn = fn(14:21);
-disp(['HF radar data: ',datestr(datenum(fn,'yyyymmdd'),'dd-mmm-yyyy')])
-
+for n = 1:4; % for each radar sit
+    path2 = [path3,data_set{n} '/'];
+    fn = dir([path2 '*nc']);
+    fn = struct2cell(fn);
+    fn = fn(1,:)';
+    fn = fn{end};
+    fn = fn(14:21);
+    disp(['HF radar data (' data_set{n}  '): ',datestr(datenum(fn,'yyyymmdd'),'dd-mmm-yyyy')])
+    
+    clear path2 fn
+end; clear n
 %OSCAR data
 path2Oscar = [root_path 'cryosat/validation_data_2/'];
 
 %ncid = netcdf.open('oscar-third-5527cc9f9fa27.nc','NC_NOWRITE');
 %ncid = netcdf.open([path2Oscar,'oscar_third.nc'],'NC_NOWRITE');
-ncid = netcdf.open([path2Oscar,'oscar_vel2016.nc'],'NC_NOWRITE');
+ncid = netcdf.open([path2Oscar,'oscar_vel2017.nc'],'NC_NOWRITE');
 
 t = netcdf.inqVarID(ncid,'time');
 tunits = netcdf.getAtt(ncid,t,'units');
