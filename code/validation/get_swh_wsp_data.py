@@ -113,11 +113,12 @@ def getSwhWspData():
         
             for ID in stId:
                 if fgz:
-                    fln = ID + 'b' + year + '.txt.gz'
+                    #fln = ID + 'b' + year + '.txt.gz'
+                    fln = ID + str(mi+1) + year + '.txt.gz'
                     #print "zipped Filename is " + fln
                 else:
-                    #fln = ID + year + '.txt'
-                    fln = ID + 'b' + year + '.txt'
+                    fln = ID + year + '.txt'
+                    #fln = ID + 'b' + year + '.txt'
                     #print "unzipped Filename is " + fln
                 URL3 = path2Data + fln
                 fileFid = urllib.URLopener()
