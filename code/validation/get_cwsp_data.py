@@ -114,10 +114,13 @@ def getCwspData():
                  #   print "ID is " + ID
                  #   print "Year is " + year
                  #   print "i is " + str(i)
-                     fln = ID + 'b' + year + '.txt.gz'
+                 #   fln = ID + 'b' + year + '.txt.gz'
                  #   fln = ID + str(i) + year + '.txt.gz'
+                    fln = ID + str(mi+1) + year + '.txt.gz' # changed 24 April as NBDC changed naming convention
+
                 else:
-                    fln = ID + 'b' + year + '.txt'  
+                    fln = ID  + '.txt' # changed 24 April as NBDC changed naming convention
+                 #   fln = ID + 'b' + year + '.txt'  
                 URL3 = path2Data + fln
                 fileFid = urllib.URLopener()
                 try:

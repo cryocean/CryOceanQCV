@@ -117,7 +117,7 @@ def getSwhWspData():
                     fln = ID + str(mi+1) + year + '.txt.gz'
                     #print "zipped Filename is " + fln
                 else:
-                    fln = ID + year + '.txt'
+                    fln = ID + '.txt'
                     #fln = ID + 'b' + year + '.txt'
                     #print "unzipped Filename is " + fln
                 URL3 = path2Data + fln
