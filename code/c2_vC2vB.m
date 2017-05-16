@@ -84,9 +84,14 @@ for i=1:length(vn)
 end
 
 % 20Hz MAY data need to be reshaped - lets try without for now!
-ind1 = 20-varin.ind_first_meas_20hz_01(2); % 0 based index first 20Hz measurement in 1Hz
-n_01 = length(varin.time_01);
-n_20 = length(varin.time_20_ku);
+% Need to add a check for single 1Hz record files!
+%if length(varin.time_01) == 1
+  %ind1 = 0;
+%else
+  %ind1 = 20-varin.ind_first_meas_20hz_01(2); % 0 based index first 20Hz measurement in 1Hz
+%end
+%n_01 = length(varin.time_01);
+%n_20 = length(varin.time_20_ku);
 
 % % This is checking that we have 20 records for all but first and last
 % %  If any other records flagged up, we need to be smarter...
