@@ -22,6 +22,9 @@ function [Vars,VAtts,GAtts,Dims]=rd_c2nc(filename,varargin)
 
 % Get NC_GLOBAL
 % ncglob = netcdf.getConstant('NC_GLOBAL');
+% Cludge to fix bad 20Hz times
+maxdate = 1.0e+10; % somewhere in the year 2301
+% End Cludge
 
 % Find if we are looking for specific variables
 if nargin>1
@@ -74,6 +77,11 @@ if (nvars>0)
       % Most scaled to doubles - calendar gets time vars
       if ismember('scale_factor',attNames) || ismember('calendar',attNames)
         datain = ncread(filename,finfo.Variables(i).Name);
+% Cludge to fix bad 20Hz times
+        if strcmp(varname,'time_20_ku')
+          datain(datain>maxdate) = NaN;
+        end
+% End Cludge
 %         fprintf('%s %d %d\n',varname,size(datain));
        % The rest need to stay as written in file (variety of integers)
       else
