@@ -1,14 +1,16 @@
 function maskFromKML_generic_func(version)
-do not use
+warning('probably do not use')
 % input version as string
 dir1 = '/noc/users/cryo/QCV_Cryo2/code/mode_mask/';
-fn = dir([dir1 'mask'  version '.kml']);
+  fn = [dir1 'mask'  version '.kml'];
+% fn = dir([dir1 fn]);
+
 version2 = version ;
 
 
 addpath ~/matlabfns/
 
- s_xml = kml2struct( fn );
+s = kml2struct( fn );
 
 
 % if file doesn't exists then create it
@@ -16,21 +18,29 @@ if ~exist([ dir1 'zonesNameMode_'  version '.mat'],'file');
     save([ dir1 'zonesNameMode_'  version '.mat'],'version2')
 end
 
-modes = load([dir1 'zonesNameMode_'  version '.mat']);
-modes = modes.Z;
-s = kml_shapefile(fn(1).name);
+
+% modes are needed to be saved as modes.Z is of format name, mode and
+% priority probably from xml data file
+
+
+modes = read_mode_xml_modes(version);
+
+% modes2 = load([dir1 'zonesNameMode_3_8.mat']);
+% modes = load([dir1 'zonesNameMode_'  version '.mat']);
+% modes2 = modes2.Z;
+% s = kml_shapefile(fn(1).name);
 x = cell(length(s),1);
 y = cell(length(s),1);
 for i=1:length(s)
-    x{i} = s(i).X;
-    y{i} = s(i).Y;
+    x{i} = s(i).Lon;
+    y{i} = s(i).Lat;
 end
 
 % --------------- build mode mask with distinction of modes ---------------
 load([dir1 'seasMask_polar.mat']) %Arctic and Antarctica polygons are the same to all mask versions
 % split polygon 'CP40_003-00' into two
 for i=1:length(x)
-    if(strfind(s(i).name,'CP40_003-00'))
+    if(strfind(s(i).Name,'CP40_003-00'))
         ksplit = i;
     end
 end
@@ -51,7 +61,7 @@ y{length(y)+1} = y2;
 modes(end+1).name = {'CP40_003-02'};
 modes(end).mode = {'SAR'};
 modes(end).priority = 4;
-
+stop work on from here
 % find CYSSAR01 and CYSSAR02 polygons
 ct = 0;
 knorth = zeros(length(x),1);
@@ -90,7 +100,9 @@ for k=1:24
     seasMaskModes.(['seas_' sprintf('%1.2d',k)]).Y = Y;
     seasMaskModes.(['seas_' sprintf('%1.2d',k)]).mode = Mode;
     seasMaskModes.(['seas_' sprintf('%1.2d',k)]).priority = p;
-    save seasMaskAllModes_3_8.mat seasMaskModes -mat
+   eval([' save seasMaskAllModes_' ...
+       version '.mat seasMaskModes -mat'])
+   
 end
 % -------------------------------------------------------------------------
 

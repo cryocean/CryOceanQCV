@@ -2,11 +2,11 @@
 <SatX>
 
   <MapRegions>
-    <MapRegion id="CYSSAR02-20">
+    <MapRegion id="CYSSAR02-17">
       <Visible>true</Visible>
       <Parameters>
         <ZoneId>CYSSAR02</ZoneId>
-        <Description>South Pole Sea-ice Boundaries Oct</Description>
+        <Description>South Pole Sea-ice Boundaries Sep</Description>
         <StartDate>UTC=0000-00-00T00:00:00</StartDate>
         <StopDate>UTC=9999-99-99T99:99:99</StopDate>
         <EntryOffset>0</EntryOffset>
@@ -14,7 +14,7 @@
         <Transition>TO_SAR__</Transition>
         <Priority>4</Priority>
         <Pass>any</Pass>
-        <Season>20</Season>
+        <Season>17</Season>
         <Enable>True</Enable>
         <Add>False</Add>
         <Modify>False</Modify>
@@ -25,9 +25,36 @@
       </Parameters>
       <Style id="6"/>
       <ClockWiseCheck>true</ClockWiseCheck>
-      <Center Lat="-86.5327187980" Lon="27.0350775128"/>
+      <Center Lat="-87.2012998362" Lon="24.3348404823"/>
       <Shape>POLYGON</Shape>
-      <MapPoints> -54.2224, -9.3136; -53.433, -2.5215; -54.5192, -0.4827; -54.0912, 3.3414; -53.3975, 14.007; -54.1106, 20.9803; -53.1201, 25.9165; -54.1722, 27.6779; -55.0402, 27.7895; -56.8199, 28.4411; -57.8508, 35.0574; -57.9296, 39.0284; -58.3661, 43.3678; -57.7626, 45.6896; -58.0747, 50.0064; -57.2157, 56.6672; -57.543, 62.9695; -57.3026, 66.169; -57.7132, 69.1343; -57.0156, 73.996; -56.9383, 74.7162; -55.681, 79.0125; -56.0168, 82.537; -58.6372, 88.1125; -57.6039, 90.359; -58.3661, 101.1357; -58.3592, 102.9623; -59.3375, 105.2806; -59.1647, 110.2034; -59.8013, 119.8695; -61.6026, 128.689; -60.7064, 135.7705; -61.4882, 144.5718; -60.2674, 152.292; -60.6044, 160.624; -60.9601, 163.8492; -61.5391, 168.8979; -62.4455, 176.3015; -62.2148, -173.5377; -61.0598, -169.8279; -58.8329, -152.7485; -58.2565, -148.1661; -57.9939, -142.9565; -58.7456, -137.8606; -59.6511, -132.7527; -61.2483, -127.8701; -63.399, -124.2319; -63.9511, -116.7326; -64.9492, -101.1966; -64.0015, -95.1309; -63.369, -88.4422; -62.4109, -77.6904; -60.9723, -65.4387; -60.6927, -62.3397; -59.2068, -57.0169; -57.7786, -50.0897; -55.6395, -38.8577; -56.0241, -36.0583; -55.5212, -31.0321; -53.9234, -26.974; -55.0271, -24.6274; -55.0994, -15.9745</MapPoints>
+      <MapPoints> -63.4596, -92.0511; -62.7555, -85.2673; -62.791, -79.7435; -61.4962, -70.816; -60.3633, -67.905; -57.0007, -54.643; -56.787, -51.3401; -56.879, -49.0442; -56.0933, -46.8593; -56.0652, -44.4216; -54.7398, -41.6136; -55.1703, -37.8638; -56.1886, -35.4206; -54.4131, -26.9673; -55.6114, -24.3331; -55.0883, -13.0099; -55.212, -6.7338; -54.0608, -2.3848; -53.9282, 1.6629; -54.0713, 8.8029; -52.8287, 12.3671; -53.0634, 22.264; -53.7743, 25.9422; -54.4123, 26.3954; -55.7767, 26.049; -57.2616, 26.6774; -57.6871, 37.1286; -58.7607, 42.4015; -57.9861, 45.8312; -56.8701, 61.3017; -57.754, 66.2625; -55.8932, 74.962; -55.0312, 79.449; -56.2447, 83.3341; -57.9047, 86.6615; -58.017, 98.5504; -59.582, 111.5081; -60.2785, 122.9776; -60.9284, 126.8866; -60.3967, 130.1634; -61.4245, 133.4651; -61.4547, 135.9499; -60.7436, 137.3474; -61.1537, 144.3421; -59.1476, 148.938; -59.2692, 152.5369; -60.7893, 156.1442; -60.2559, 160.6705; -61.387, 171.6107; -62.4016, 174.743; -62.4915, -179.017; -60.5684, -168.2229; -61.0946, -162.9277; -57.4065, -146.8801; -57.932, -143.7317; -61.6105, -131.3208; -62.9486, -127.5415; -64.5355, -112.8024</MapPoints>
+    </MapRegion>
+    <MapRegion id="CYSSAR02-18">
+      <Visible>true</Visible>
+      <Parameters>
+        <ZoneId>CYSSAR02</ZoneId>
+        <Description>South Pole Sea-ice Boundaries Sep</Description>
+        <StartDate>UTC=0000-00-00T00:00:00</StartDate>
+        <StopDate>UTC=9999-99-99T99:99:99</StopDate>
+        <EntryOffset>0</EntryOffset>
+        <ExitOffset>0</ExitOffset>
+        <Transition>TO_SAR__</Transition>
+        <Priority>4</Priority>
+        <Pass>any</Pass>
+        <Season>18</Season>
+        <Enable>True</Enable>
+        <Add>False</Add>
+        <Modify>False</Modify>
+        <ModifyTransition>False</ModifyTransition>
+        <Delete>False</Delete>
+        <ToRemove>False</ToRemove>
+        <Send>True</Send>
+      </Parameters>
+      <Style id="6"/>
+      <ClockWiseCheck>true</ClockWiseCheck>
+      <Center Lat="-87.2012998362" Lon="24.3348404823"/>
+      <Shape>POLYGON</Shape>
+      <MapPoints> -63.4596, -92.0511; -62.7555, -85.2673; -62.791, -79.7435; -61.4962, -70.816; -60.3633, -67.905; -57.0007, -54.643; -56.787, -51.3401; -56.879, -49.0442; -56.0933, -46.8593; -56.0652, -44.4216; -54.7398, -41.6136; -55.1703, -37.8638; -56.1886, -35.4206; -54.4131, -26.9673; -55.6114, -24.3331; -55.0883, -13.0099; -55.212, -6.7338; -54.0608, -2.3848; -53.9282, 1.6629; -54.0713, 8.8029; -52.8287, 12.3671; -53.0634, 22.264; -53.7743, 25.9422; -54.4123, 26.3954; -55.7767, 26.049; -57.2616, 26.6774; -57.6871, 37.1286; -58.7607, 42.4015; -57.9861, 45.8312; -56.8701, 61.3017; -57.754, 66.2625; -55.8932, 74.962; -55.0312, 79.449; -56.2447, 83.3341; -57.9047, 86.6615; -58.017, 98.5504; -59.582, 111.5081; -60.2785, 122.9776; -60.9284, 126.8866; -60.3967, 130.1634; -61.4245, 133.4651; -61.4547, 135.9499; -60.7436, 137.3474; -61.1537, 144.3421; -59.1476, 148.938; -59.2692, 152.5369; -60.7893, 156.1442; -60.2559, 160.6705; -61.387, 171.6107; -62.4016, 174.743; -62.4915, -179.017; -60.5684, -168.2229; -61.0946, -162.9277; -57.4065, -146.8801; -57.932, -143.7317; -61.6105, -131.3208; -62.9486, -127.5415; -64.5355, -112.8024</MapPoints>
     </MapRegion>
     <MapRegion id="CYFSIN06-00">
       <Visible>true</Visible>
@@ -106,9 +133,9 @@
       </Parameters>
       <Style id="6"/>
       <ClockWiseCheck>true</ClockWiseCheck>
-      <Center Lat="35.9448736059" Lon="83.4231693698"/>
+      <Center Lat="35.9394313431" Lon="83.5470734678"/>
       <Shape>POLYGON</Shape>
-      <MapPoints> 35.7874, 82.5115; 35.7498, 82.634; 36.0473, 83.9003; 36.3315, 85.1759; 36.6019, 86.4605; 36.8585, 87.7539; 37.1009, 89.0557; 37.3291, 90.3655; 37.5426, 91.683; 37.7415, 93.0078; 37.9254, 94.3393; 38.6196, 97.108; 38.3862, 98.3701; 37.2322, 101.6022; 35.5077, 101.4708; 33.7768, 101.2825; 32.8465, 101.8268; 31.9137, 102.3599; 30.9785, 102.8824; 30.041, 103.3948; 29.1014, 103.8977; 28.1599, 104.3916; 27.2164, 104.877; 26.8362, 103.5948; 26.4446, 102.3213; 26.0418, 101.0565; 25.628, 99.8004; 26.3425, 98.7577; 27.0493, 97.7023; 27.7481, 96.6338; 27.0495, 95.1928; 26.3365, 93.7697; 26.1171, 92.5682; 25.8025, 91.4935; 25.6232, 90.199; 26.1769, 89.2308; 26.1148, 88.0984; 26.0438, 86.9674; 25.9641, 85.8377; 25.8756, 84.7096; 25.7784, 83.5834; 26.5033, 82.6311; 27.2218, 81.6669; 27.9334, 80.6905; 28.6381, 79.7012; 29.3353, 78.6988; 30.0248, 77.6829; 30.7064, 76.6529; 31.3796, 75.6085; 30.5922, 74.7388; 29.7991, 73.8831; 29.0004, 73.0408; 28.1965, 72.2113; 28.1107, 71.0451; 28.0152, 69.8809; 27.9099, 68.7189; 28.5667, 67.7344; 29.2163, 66.7378; 29.8583, 65.7287; 30.4924, 64.7067; 31.1184, 63.6715; 31.736, 62.6229; 32.9017, 62.3911; 34.0667, 62.1533; 35.231, 61.9089; 35.5332, 63.0792; 35.824, 64.2582; 36.1032, 65.4455; 36.3706, 66.6411; 36.626, 67.8447; 36.8691, 69.056; 37.1, 70.2749; 37.5424, 69.0358; 37.9717, 67.7824; 38.3876, 66.5146; 39.5187, 67.1736; 40.6457, 67.8542; 41.7683, 68.558; 42.8862, 69.2866; 43.1038, 70.8488; 43.3, 72.4216; 43.4745, 74.0039; 43.6271, 75.5947; 43.7576, 77.1931; 44.6256, 78.4359; 45.4796, 79.7159; 46.3188, 81.0347; 46.1869, 82.5549; 46.0349, 84.0673; 45.8632, 85.571; 45.6718, 87.0649; 45.4611, 88.5483; 45.2313, 90.0201; 44.9827, 91.4797; 44.7157, 92.9263; 44.4306, 94.3593; 44.1278, 95.7781; 43.6954, 94.5196; 43.2494, 93.2792; 42.7901, 92.0571; 42.318, 90.853; 41.8335, 89.6671; 41.618, 88.3112; 41.3867, 86.9646; 41.1398, 85.6278; 40.8776, 84.3013; 40.6003, 82.9855; 40.3739, 81.6759; 40.133, 80.3753; 39.8775, 79.0841; 39.6079, 77.8027; 38.0373, 77.6044; 37.3869, 79.2284; 36.8692, 80.3238; 36.3415, 81.4046; 35.8042, 82.4708; 35.7874, 82.5115</MapPoints>
+      <MapPoints> 35.7498, 82.634; 38.3862, 98.3701; 27.2164, 104.877; 25.628, 99.8004; 27.7481, 96.6338; 26.3365, 93.7697; 25.7784, 83.5834; 31.3796, 75.6085; 28.1965, 72.2113; 27.9099, 68.7189; 31.736, 62.6229; 35.231, 61.9089; 37.1, 70.2749; 38.3876, 66.5146; 42.8862, 69.2866; 43.7576, 77.1931; 46.3188, 81.0347; 44.1278, 95.7781; 41.8335, 89.6671; 40.6003, 82.9855; 39.6079, 77.8027; 38.0373, 77.6044; 37.3869, 79.2284; 35.8042, 82.4708; 35.7874, 82.5115</MapPoints>
     </MapRegion>
     <MapRegion id="CYFSIN11-00">
       <Visible>true</Visible>
@@ -430,9 +457,9 @@
       </Parameters>
       <Style id="6"/>
       <ClockWiseCheck>true</ClockWiseCheck>
-      <Center Lat="-85.6705054132" Lon="83.8376422032"/>
+      <Center Lat="-85.7620700804" Lon="83.3266273212"/>
       <Shape>POLYGON</Shape>
-      <MapPoints> -84.6406, -48.5731; -81, -24.0; -74.5806, -13.9702; -73.763, -7.005; -73.6424, 9.2986; -70.9324, 41.7053; -69.6276, 57.6003; -70.373, 61.9091; -74.0719, 60.8433; -76.173, 67.7107; -75.4577, 77.1372; -72.7426, 85.2743; -70.6155, 96.8685; -70.861, 108.7502; -70.1083, 129.8424; -69.9759, 144.454; -72.3109, 152.2398; -74.8789, 155.0915; -80.7676, 151.7787; -86.7927, 147.7396; -85.4689, -120.2809; -78.9212, -143.9479; -78.1633, -133.8293; -77.8827, -115.4923; -77.1074, -95.5542; -78.158, -91.6218; -78.8693, -88.2855; -79.2073, -86.9373; -80.1003, -84.3192; -82.6385, -77.0071; -84.0588, -67.4027</MapPoints>
+      <MapPoints> -83.2586, -48.6217; -80.5543, -27.7629; -74.5806, -13.9702; -73.763, -7.005; -73.6424, 9.2986; -70.9324, 41.7053; -69.6276, 57.6003; -70.373, 61.9091; -74.0719, 60.8433; -76.173, 67.7107; -75.4577, 77.1372; -72.7426, 85.2743; -70.6155, 96.8685; -70.861, 108.7502; -70.1083, 129.8424; -69.9759, 144.454; -72.3109, 152.2398; -74.8789, 155.0915; -80.7676, 151.7787; -86.7927, 147.7396; -85.4689, -120.2809; -78.9212, -143.9479; -78.1633, -133.8293; -77.8827, -115.4923; -77.1074, -95.5542; -78.158, -91.6218; -78.8693, -88.2855; -79.1595, -86.9349; -80.044, -82.8003</MapPoints>
     </MapRegion>
     <MapRegion id="CYFSIN26-00">
       <Visible>true</Visible>
@@ -488,11 +515,11 @@
       <Shape>POLYGON</Shape>
       <MapPoints> 79.9141, -57.3867; 78.9214, -29.6599; 72.4029, -33.2361; 70.0673, -34.3549; 67.2986, -42.6876; 63.9734, -45.004; 66.0024, -48.7; 71.846, -47.7; 78.024, -59.8655</MapPoints>
     </MapRegion>
-    <MapRegion id="CYSSAR01-08">
+    <MapRegion id="CYSSAR01-05">
       <Visible>true</Visible>
       <Parameters>
         <ZoneId>CYSSAR01</ZoneId>
-        <Description>Sea Ice Concentration North Apr</Description>
+        <Description>Sea Ice Concentration North Mar</Description>
         <StartDate>UTC=0000-00-00T00:00:00</StartDate>
         <StopDate>UTC=9999-99-99T99:99:99</StopDate>
         <EntryOffset>0</EntryOffset>
@@ -500,7 +527,34 @@
         <Transition>TO_SAR__</Transition>
         <Priority>4</Priority>
         <Pass>any</Pass>
-        <Season>8</Season>
+        <Season>5</Season>
+        <Enable>True</Enable>
+        <Add>False</Add>
+        <Modify>False</Modify>
+        <ModifyTransition>False</ModifyTransition>
+        <Delete>False</Delete>
+        <ToRemove>False</ToRemove>
+        <Send>True</Send>
+      </Parameters>
+      <Style id="8"/>
+      <ClockWiseCheck>true</ClockWiseCheck>
+      <Center Lat="85.5207732639" Lon="-79.5730511216"/>
+      <Shape>POLYGON</Shape>
+      <MapPoints> 71.9458, 41.572; 72.2311, 41.8195; 73.2475, 36.5061; 74.3572, 34.842; 74.8228, 29.2451; 73.5521, 19.1549; 76.8359, 9.0067; 78.6253, 4.7014; 78.5516, 2.9425; 76.9254, -1.2975; 75.8413, 3.2331; 74.5473, 6.5168; 72.8322, 4.746; 71.1736, -2.101; 69.5927, -12.436; 67.8522, -14.6068; 65.6606, -25.8351; 63.7029, -37.2185; 59.3856, -41.6608; 59.2249, -43.1762; 58.9585, -44.3269; 59.3888, -45.6431; 60.2346, -49.1087; 62.9752, -53.2688; 61.277, -54.9892; 60.6681, -56.3164; 57.585, -57.4922; 56.9136, -55.9618; 56.1289, -55.2649; 55.6846, -52.7805; 49.5529, -48.108; 48.4273, -45.9796; 46.4678, -46.1698; 46.3309, -47.5139; 47.153, -49.741; 46.9388, -51.8565; 46.5007, -54.7535; 46.9735, -57.9801; 45.4378, -57.9007; 45.0453, -59.9502; 44.9749, -62.6975; 43.7024, -65.418; 43.7517, -67.0915; 44.7158, -68.8707; 46.2192, -65.9551; 47.7109, -66.5968; 45.4636, -69.5562; 46.1824, -72.3375; 48.7113, -71.8054; 50.7463, -67.9191; 51.451, -61.2166; 52.0632, -58.4782; 57.7191, -64.8778; 57.0164, -66.4915; 56.7882, -69.7436; 59.3632, -71.1788; 61.3447, -75.7216; 59.2052, -75.6149; 56.2599, -74.6326; 53.9014, -77.1164; 51.4956, -76.5548; 49.4106, -79.4711; 53.9893, -85.4407; 55.3846, -93.723; 59.9139, -97.4015; 64.5582, -91.1534; 65.1925, -87.4551; 68.1662, -88.992; 67.2619, -107.4536; 67.8236, -135.5542; 69.7636, -147.8095; 63.6459, -151.1062; 56.6313, -157.0102; 55.2705, -160.8215; 56.6175, -172.6218; 58.226, -176.0636; 59.5768, 176.5159; 57.3726, 170.9669; 58.1692, 168.7952; 57.193, 166.386; 53.4603, 163.0341; 50.3275, 156.3377; 49.8711, 154.3573; 49.6944, 152.7171; 45.8795, 150.673; 45.0683, 149.616; 43.8863, 147.2044; 42.8644, 145.4175; 43.634, 143.3953; 45.2451, 141.8748; 46.829, 141.8724; 47.0742, 138.7098; 51.4657, 131.0051; 55.6053, 132.8167; 60.2473, 139.3399; 61.3638, 148.5853; 62.8357, 155.3509; 63.8903, 163.8573; 61.7274, 170.0432; 63.9478, 174.7227; 67.2499, 179.2717; 67.3805, 174.508; 66.9576, 163.1268; 69.6557, 156.0615; 69.2216, 130.6794; 71.7953, 125.1797; 71.093, 105.5773; 72.7515, 102.3297; 75.7602, 107.6951; 72.683, 88.9933; 70.4929, 85.901; 67.3177, 78.8104; 66.0723, 72.1827; 61.5673, 39.1008; 63.1731, 33.2761; 66.2059, 31.9892; 65.5513, 28.6146; 62.4105, 22.5912; 61.3832, 26.1667; 59.9583, 31.3263; 57.3559, 25.1796; 53.8248, 21.5475; 52.9952, 17.8781; 52.5511, 12.5809; 58.4786, 14.2797; 64.3631, 17.694; 66.8223, 24.5126; 67.8914, 35.8929; 68.6413, 38.6215; 70.3783, 39.551; 71.5689, 41.2722; 71.7756, 41.4864</MapPoints>
+    </MapRegion>
+    <MapRegion id="CYSSAR01-06">
+      <Visible>true</Visible>
+      <Parameters>
+        <ZoneId>CYSSAR01</ZoneId>
+        <Description>Sea Ice Concentration North Mar</Description>
+        <StartDate>UTC=0000-00-00T00:00:00</StartDate>
+        <StopDate>UTC=9999-99-99T99:99:99</StopDate>
+        <EntryOffset>0</EntryOffset>
+        <ExitOffset>0</ExitOffset>
+        <Transition>TO_SAR__</Transition>
+        <Priority>4</Priority>
+        <Pass>any</Pass>
+        <Season>6</Season>
         <Enable>True</Enable>
         <Add>False</Add>
         <Modify>False</Modify>
@@ -511,9 +565,9 @@
       </Parameters>
       <Style id="6"/>
       <ClockWiseCheck>true</ClockWiseCheck>
-      <Center Lat="86.1288303166" Lon="-95.0761209359"/>
+      <Center Lat="85.5207732639" Lon="-79.5730511216"/>
       <Shape>POLYGON</Shape>
-      <MapPoints> 64.5065, 18.1895; 66.981, 23.3483; 67.6707, 35.889; 68.8234, 38.5433; 70.3741, 39.2034; 71.6414, 41.8176; 72.1275, 36.5827; 75.0502, 29.0396; 73.525, 19.1593; 76.7541, 8.7433; 79.2357, 7.46; 77.066, -1.3299; 75.9187, -1.6149; 74.4353, -2.4228; 73.0349, 0.953; 71.7898, -3.3748; 71.6385, -8.577; 68.2858, -14.3545; 65.7026, -25.5932; 63.9108, -36.952; 59.1315, -42.7691; 58.7188, -44.2703; 60.1737, -49.0862; 65.1664, -54.229; 61.295, -54.9396; 60.4949, -57.6159; 57.3979, -57.4725; 56.6, -56.5529; 55.2316, -53.1679; 52.9284, -51.792; 50.1728, -48.8724; 48.4083, -48.2049; 46.8806, -53.8518; 48.399, -55.8744; 47.5603, -58.4744; 46.3626, -59.8619; 45.0101, -62.9472; 46.218, -66.012; 47.7812, -66.5828; 45.5485, -69.8495; 46.1638, -72.3701; 48.5443, -71.9686; 50.7037, -67.8727; 51.2032, -61.2453; 52.2286, -58.4676; 57.6798, -65.0462; 56.841, -66.1362; 56.8469, -69.6651; 59.3157, -71.0944; 61.205, -75.3029; 56.1192, -74.8899; 54.0103, -77.0533; 51.6883, -76.7244; 49.2361, -79.3662; 53.9848, -85.1356; 55.0792, -93.755; 59.9671, -97.5496; 64.8167, -90.7413; 65.1505, -87.6008; 68.1507, -89.0281; 66.484, -106.8316; 67.8399, -135.0468; 69.8102, -147.7548; 63.7909, -150.9081; 57.1337, -157.4206; 56.2963, -160.5263; 56.5589, -172.5107; 59.6556, 176.2162; 59.1883, 170.8677; 57.9518, 168.3961; 57.9744, 166.6517; 53.4875, 163.122; 52.631, 160.5878; 52.507, 157.5288; 54.7069, 156.8673; 54.9502, 155.5919; 56.4192, 153.5066; 54.3092, 152.279; 53.8906, 149.8841; 51.2847, 151.1158; 47.1148, 148.3834; 46.5857, 150.0585; 45.3244, 149.887; 42.7148, 145.3668; 43.6487, 143.4112; 45.41, 141.7855; 48.3364, 142.1204; 48.8609, 136.9497; 51.3569, 130.9605; 55.5995, 132.7896; 60.1673, 138.9957; 61.2842, 148.3447; 63.907, 164.0327; 61.6687, 169.9858; 64.0101, 174.8022; 67.326, 179.5941; 66.8846, 163.8087; 69.4857, 156.5378; 68.9575, 131.2969; 71.7781, 125.1519; 71.1456, 106.3253; 72.9654, 102.0768; 75.6144, 106.6784; 72.5333, 88.4239; 70.6265, 86.4911; 67.365, 72.7242; 61.5826, 39.1362; 63.2044, 33.1441; 66.1493, 31.5791; 65.6226, 28.6624; 62.398, 22.7192; 61.5325, 25.9582; 60.0098, 30.9212; 57.2263, 25.1595; 53.8675, 22.2253; 53.0481, 18.4094; 53.1191, 12.7924; 53.8994, 12.9771</MapPoints>
+      <MapPoints> 71.9458, 41.572; 72.2311, 41.8195; 73.2475, 36.5061; 74.3572, 34.842; 74.8228, 29.2451; 73.5521, 19.1549; 76.8359, 9.0067; 78.6253, 4.7014; 78.5516, 2.9425; 76.9254, -1.2975; 75.8413, 3.2331; 74.5473, 6.5168; 72.8322, 4.746; 71.1736, -2.101; 69.5927, -12.436; 67.8522, -14.6068; 65.6606, -25.8351; 63.7029, -37.2185; 59.3856, -41.6608; 59.2249, -43.1762; 58.9585, -44.3269; 59.3888, -45.6431; 60.2346, -49.1087; 62.9752, -53.2688; 61.277, -54.9892; 60.6681, -56.3164; 57.585, -57.4922; 56.9136, -55.9618; 56.1289, -55.2649; 55.6846, -52.7805; 49.5529, -48.108; 48.4273, -45.9796; 46.4678, -46.1698; 46.3309, -47.5139; 47.153, -49.741; 46.9388, -51.8565; 46.5007, -54.7535; 46.9735, -57.9801; 45.4378, -57.9007; 45.0453, -59.9502; 44.9749, -62.6975; 43.7024, -65.418; 43.7517, -67.0915; 44.7158, -68.8707; 46.2192, -65.9551; 47.7109, -66.5968; 45.4636, -69.5562; 46.1824, -72.3375; 48.7113, -71.8054; 50.7463, -67.9191; 51.451, -61.2166; 52.0632, -58.4782; 57.7191, -64.8778; 57.0164, -66.4915; 56.7882, -69.7436; 59.3632, -71.1788; 61.3447, -75.7216; 59.2052, -75.6149; 56.2599, -74.6326; 53.9014, -77.1164; 51.4956, -76.5548; 49.4106, -79.4711; 53.9893, -85.4407; 55.3846, -93.723; 59.9139, -97.4015; 64.5582, -91.1534; 65.1925, -87.4551; 68.1662, -88.992; 67.2619, -107.4536; 67.8236, -135.5542; 69.7636, -147.8095; 63.6459, -151.1062; 56.6313, -157.0102; 55.2705, -160.8215; 56.6175, -172.6218; 58.226, -176.0636; 59.5768, 176.5159; 57.3726, 170.9669; 58.1692, 168.7952; 57.193, 166.386; 53.4603, 163.0341; 50.3275, 156.3377; 49.8711, 154.3573; 49.6944, 152.7171; 45.8795, 150.673; 45.0683, 149.616; 43.8863, 147.2044; 42.8644, 145.4175; 43.634, 143.3953; 45.2451, 141.8748; 46.829, 141.8724; 47.0742, 138.7098; 51.4657, 131.0051; 55.6053, 132.8167; 60.2473, 139.3399; 61.3638, 148.5853; 62.8357, 155.3509; 63.8903, 163.8573; 61.7274, 170.0432; 63.9478, 174.7227; 67.2499, 179.2717; 67.3805, 174.508; 66.9576, 163.1268; 69.6557, 156.0615; 69.2216, 130.6794; 71.7953, 125.1797; 71.093, 105.5773; 72.7515, 102.3297; 75.7602, 107.6951; 72.683, 88.9933; 70.4929, 85.901; 67.3177, 78.8104; 66.0723, 72.1827; 61.5673, 39.1008; 63.1731, 33.2761; 66.2059, 31.9892; 65.5513, 28.6146; 62.4105, 22.5912; 61.3832, 26.1667; 59.9583, 31.3263; 57.3559, 25.1796; 53.8248, 21.5475; 52.9952, 17.8781; 52.5511, 12.5809; 58.4786, 14.2797; 64.3631, 17.694; 66.8223, 24.5126; 67.8914, 35.8929; 68.6413, 38.6215; 70.3783, 39.551; 71.5689, 41.2722; 71.7756, 41.4864</MapPoints>
     </MapRegion>
     <MapRegion id="AR2690_1-00">
       <Visible>true</Visible>
@@ -596,6 +650,33 @@
       <Shape>POLYGON</Shape>
       <MapPoints> -60.0, -74; -60.0, -64; -67, -64; -67, -74</MapPoints>
     </MapRegion>
+    <MapRegion id="AR2700_1-00">
+      <Visible>true</Visible>
+      <Parameters>
+        <ZoneId>AR2700_1</ZoneId>
+        <Description>Region of the Tyrrhenian sea</Description>
+        <StartDate>UTC=0000-00-00T00:00:00</StartDate>
+        <StopDate>UTC=9999-99-99T99:99:99</StopDate>
+        <EntryOffset>0</EntryOffset>
+        <ExitOffset>0</ExitOffset>
+        <Transition>TO_SAR__</Transition>
+        <Priority>4</Priority>
+        <Pass>any</Pass>
+        <Season>0</Season>
+        <Enable>True</Enable>
+        <Add>False</Add>
+        <Modify>False</Modify>
+        <ModifyTransition>False</ModifyTransition>
+        <Delete>False</Delete>
+        <ToRemove>False</ToRemove>
+        <Send>True</Send>
+      </Parameters>
+      <Style id="10"/>
+      <ClockWiseCheck>true</ClockWiseCheck>
+      <Center Lat="40.0044126154" Lon="14.0"/>
+      <Shape>POLYGON</Shape>
+      <MapPoints> 39, 13; 41, 13; 41, 15.0; 39, 15.0</MapPoints>
+    </MapRegion>
     <MapRegion id="AN2706_1-00">
       <Visible>true</Visible>
       <Parameters>
@@ -677,6 +758,87 @@
       <Shape>POLYGON</Shape>
       <MapPoints> -18, 21; -18, 24.0; -21, 24.0; -21, 21</MapPoints>
     </MapRegion>
+    <MapRegion id="AN2706_4-00">
+      <Visible>true</Visible>
+      <Parameters>
+        <ZoneId>AN2706_4</ZoneId>
+        <Description>Amazon River Basin: Costal Zone</Description>
+        <StartDate>UTC=0000-00-00T00:00:00</StartDate>
+        <StopDate>UTC=9999-99-99T99:99:99</StopDate>
+        <EntryOffset>0</EntryOffset>
+        <ExitOffset>0</ExitOffset>
+        <Transition>TO_SIN__</Transition>
+        <Priority>6</Priority>
+        <Pass>any</Pass>
+        <Season>0</Season>
+        <Enable>True</Enable>
+        <Add>False</Add>
+        <Modify>False</Modify>
+        <ModifyTransition>False</ModifyTransition>
+        <Delete>False</Delete>
+        <ToRemove>False</ToRemove>
+        <Send>True</Send>
+      </Parameters>
+      <Style id="14"/>
+      <ClockWiseCheck>true</ClockWiseCheck>
+      <Center Lat="-0.0" Lon="-51"/>
+      <Shape>POLYGON</Shape>
+      <MapPoints> 2, -54; 2, -48.0; -2, -48.0; -2, -54</MapPoints>
+    </MapRegion>
+    <MapRegion id="AN2706_5-00">
+      <Visible>true</Visible>
+      <Parameters>
+        <ZoneId>AN2706_5</ZoneId>
+        <Description>Amazon River Basin: Balbina Reservoir</Description>
+        <StartDate>UTC=0000-00-00T00:00:00</StartDate>
+        <StopDate>UTC=9999-99-99T99:99:99</StopDate>
+        <EntryOffset>0</EntryOffset>
+        <ExitOffset>0</ExitOffset>
+        <Transition>TO_SIN__</Transition>
+        <Priority>6</Priority>
+        <Pass>any</Pass>
+        <Season>0</Season>
+        <Enable>True</Enable>
+        <Add>False</Add>
+        <Modify>False</Modify>
+        <ModifyTransition>False</ModifyTransition>
+        <Delete>False</Delete>
+        <ToRemove>False</ToRemove>
+        <Send>True</Send>
+      </Parameters>
+      <Style id="10"/>
+      <ClockWiseCheck>true</ClockWiseCheck>
+      <Center Lat="-1.5002299115" Lon="-59.0"/>
+      <Shape>POLYGON</Shape>
+      <MapPoints> -1, -60.0; -1, -58.0; -2, -58.0; -2, -60.0</MapPoints>
+    </MapRegion>
+    <MapRegion id="AN2706_6-00">
+      <Visible>true</Visible>
+      <Parameters>
+        <ZoneId>AN2706_6</ZoneId>
+        <Description>Amazon River Basin: Main Stem River</Description>
+        <StartDate>UTC=0000-00-00T00:00:00</StartDate>
+        <StopDate>UTC=9999-99-99T99:99:99</StopDate>
+        <EntryOffset>0</EntryOffset>
+        <ExitOffset>0</ExitOffset>
+        <Transition>TO_SIN__</Transition>
+        <Priority>6</Priority>
+        <Pass>any</Pass>
+        <Season>0</Season>
+        <Enable>True</Enable>
+        <Add>False</Add>
+        <Modify>False</Modify>
+        <ModifyTransition>False</ModifyTransition>
+        <Delete>False</Delete>
+        <ToRemove>False</ToRemove>
+        <Send>True</Send>
+      </Parameters>
+      <Style id="10"/>
+      <ClockWiseCheck>true</ClockWiseCheck>
+      <Center Lat="-3.0010384677" Lon="-60.5"/>
+      <Shape>POLYGON</Shape>
+      <MapPoints> -2, -62; -2, -59.0; -4, -59.0; -4, -62</MapPoints>
+    </MapRegion>
     <MapRegion id="AN2706_8-00">
       <Visible>true</Visible>
       <Parameters>
@@ -698,7 +860,7 @@
         <ToRemove>False</ToRemove>
         <Send>True</Send>
       </Parameters>
-      <Style id="14"/>
+      <Style id="15"/>
       <ClockWiseCheck>true</ClockWiseCheck>
       <Center Lat="38.5010914037" Lon="-76.0"/>
       <Shape>POLYGON</Shape>
@@ -730,226 +892,6 @@
       <Center Lat="-18.0233576518" Lon="-57.0"/>
       <Shape>POLYGON</Shape>
       <MapPoints> -16, -60.0; -16, -54; -20, -54; -20, -60.0</MapPoints>
-    </MapRegion>
-    <MapRegion id="Colombia-00">
-      <Visible>true</Visible>
-      <Parameters>
-        <ZoneId>Colombia</ZoneId>
-        <StartDate>UTC=0000-00-00T00:00:00</StartDate>
-        <StopDate>UTC=9999-99-99T99:99:99</StopDate>
-        <EntryOffset>0</EntryOffset>
-        <ExitOffset>0</ExitOffset>
-        <Transition>TO_SAR__</Transition>
-        <Priority>7</Priority>
-        <Pass>any</Pass>
-        <Season>0</Season>
-        <Enable>True</Enable>
-        <Add>False</Add>
-        <Modify>False</Modify>
-        <ModifyTransition>False</ModifyTransition>
-        <Delete>False</Delete>
-        <ToRemove>False</ToRemove>
-        <Send>True</Send>
-      </Parameters>
-      <Style id="6"/>
-      <ClockWiseCheck>true</ClockWiseCheck>
-      <PoleEnclosed>0</PoleEnclosed>
-      <Center Lat="8.9992622515" Lon="-75.0265234108"/>
-      <Shape>POLYGON</Shape>
-      <MapPoints> 7.069, -75.587; 11.062, -75.035; 11.17, -74.82; 9.519, -74.645; 9.3, -74.175; 7.603, -74.473; 7.069, -75.587</MapPoints>
-    </MapRegion>
-    <MapRegion id="Greece__-00">
-      <Visible>true</Visible>
-      <Parameters>
-        <ZoneId>Greece__</ZoneId>
-        <Description>Greece </Description>
-        <StartDate>UTC=0000-00-00T00:00:00</StartDate>
-        <StopDate>UTC=9999-99-99T99:99:99</StopDate>
-        <EntryOffset>0</EntryOffset>
-        <ExitOffset>0</ExitOffset>
-        <Transition>TO_SIN__</Transition>
-        <Priority>6</Priority>
-        <Pass>any</Pass>
-        <Season>0</Season>
-        <Enable>True</Enable>
-        <Add>False</Add>
-        <Modify>False</Modify>
-        <ModifyTransition>False</ModifyTransition>
-        <Delete>False</Delete>
-        <ToRemove>False</ToRemove>
-        <Send>True</Send>
-      </Parameters>
-      <Style id="6"/>
-      <ClockWiseCheck>true</ClockWiseCheck>
-      <PoleEnclosed>0</PoleEnclosed>
-      <Center Lat="37.8546611212" Lon="23.7592245705"/>
-      <Shape>POLYGON</Shape>
-      <MapPoints> 40.4493, 18.9078; 41.2376, 27.7163; 37.5162, 29.0254; 33.7371, 26.8595; 33.9948, 22.8801; 36.3126, 19.2574; 40.4493, 18.9078</MapPoints>
-    </MapRegion>
-    <MapRegion id="Harvest_-00">
-      <Visible>true</Visible>
-      <Parameters>
-        <ZoneId>Harvest_</ZoneId>
-        <Description>Harvest Platform California</Description>
-        <StartDate>UTC=0000-00-00T00:00:00</StartDate>
-        <StopDate>UTC=9999-99-99T99:99:99</StopDate>
-        <EntryOffset>0</EntryOffset>
-        <ExitOffset>0</ExitOffset>
-        <Transition>TO_SIN__</Transition>
-        <Priority>4</Priority>
-        <Pass>any</Pass>
-        <Season>0</Season>
-        <Enable>True</Enable>
-        <Add>False</Add>
-        <Modify>False</Modify>
-        <ModifyTransition>False</ModifyTransition>
-        <Delete>False</Delete>
-        <ToRemove>False</ToRemove>
-        <Send>True</Send>
-      </Parameters>
-      <Style id="6"/>
-      <ClockWiseCheck>true</ClockWiseCheck>
-      <PoleEnclosed>0</PoleEnclosed>
-      <Center Lat="34.5266273021" Lon="-121.6197653617"/>
-      <Shape>POLYGON</Shape>
-      <MapPoints> 38, -124; 38, -119; 31, -119; 31, -124; 38, -124</MapPoints>
-    </MapRegion>
-    <MapRegion id="LakeTana-00">
-      <Visible>true</Visible>
-      <Parameters>
-        <ZoneId>LakeTana</ZoneId>
-        <Description>Lake Tana</Description>
-        <StartDate>UTC=0000-00-00T00:00:00</StartDate>
-        <StopDate>UTC=9999-99-99T99:99:99</StopDate>
-        <EntryOffset>0</EntryOffset>
-        <ExitOffset>0</ExitOffset>
-        <Transition>TO_SAR__</Transition>
-        <Priority>5</Priority>
-        <Pass>any</Pass>
-        <Season>0</Season>
-        <Enable>True</Enable>
-        <Add>False</Add>
-        <Modify>False</Modify>
-        <ModifyTransition>False</ModifyTransition>
-        <Delete>False</Delete>
-        <ToRemove>False</ToRemove>
-        <Send>True</Send>
-      </Parameters>
-      <Style id="6"/>
-      <ClockWiseCheck>true</ClockWiseCheck>
-      <PoleEnclosed>0</PoleEnclosed>
-      <Center Lat="11.8265432105" Lon="37.1777314119"/>
-      <Shape>POLYGON</Shape>
-      <MapPoints> 11.2188, 36.6305; 12.7282, 36.6112; 12.7344, 38.0103; 11.2284, 38.0077; 11.2188, 36.6305</MapPoints>
-    </MapRegion>
-    <MapRegion id="SAR_PACI-00">
-      <Visible>true</Visible>
-      <Parameters>
-        <ZoneId>SAR_PACI</ZoneId>
-        <Description>SAR zone over pacific</Description>
-        <StartDate>UTC=0000-00-00T00:00:00</StartDate>
-        <StopDate>UTC=9999-99-99T99:99:99</StopDate>
-        <EntryOffset>0</EntryOffset>
-        <ExitOffset>0</ExitOffset>
-        <Transition>TO_SAR__</Transition>
-        <Priority>6</Priority>
-        <Pass>any</Pass>
-        <Season>0</Season>
-        <Enable>True</Enable>
-        <Add>False</Add>
-        <Modify>False</Modify>
-        <ModifyTransition>False</ModifyTransition>
-        <Delete>False</Delete>
-        <ToRemove>False</ToRemove>
-        <Send>True</Send>
-      </Parameters>
-      <Style id="6"/>
-      <ClockWiseCheck>true</ClockWiseCheck>
-      <PoleEnclosed>0</PoleEnclosed>
-      <Center Lat="-15.2017552813" Lon="-126"/>
-      <Shape>POLYGON</Shape>
-      <MapPoints> -5, -140; -5, -112; -25, -112; -25, -140</MapPoints>
-    </MapRegion>
-    <MapRegion id="Bengal__-00">
-      <Visible>true</Visible>
-      <Parameters>
-        <ZoneId>Bengal__</ZoneId>
-        <StartDate>UTC=0000-00-00T00:00:00</StartDate>
-        <StopDate>UTC=9999-99-99T99:99:99</StopDate>
-        <EntryOffset>0</EntryOffset>
-        <ExitOffset>0</ExitOffset>
-        <Transition>TO_SAR__</Transition>
-        <Priority>8</Priority>
-        <Pass>any</Pass>
-        <Season>0</Season>
-        <Enable>True</Enable>
-        <Add>True</Add>
-        <Modify>False</Modify>
-        <ModifyTransition>True</ModifyTransition>
-        <Delete>False</Delete>
-        <ToRemove>False</ToRemove>
-        <Send>True</Send>
-      </Parameters>
-      <Style id="6"/>
-      <ClockWiseCheck>true</ClockWiseCheck>
-      <PoleEnclosed>0</PoleEnclosed>
-      <Center Lat="19.7691792305" Lon="90.6663527919"/>
-      <Shape>POLYGON</Shape>
-      <MapPoints> 18, 85; 20, 85; 24.0, 88; 24.0, 92; 22, 94; 15.0, 95; 15.0, 93; 20, 92; 20, 88; 18, 85</MapPoints>
-    </MapRegion>
-    <MapRegion id="Elbe_riv-00">
-      <Visible>true</Visible>
-      <Parameters>
-        <ZoneId>Elbe_riv</ZoneId>
-        <StartDate>UTC=0000-00-00T00:00:00</StartDate>
-        <StopDate>UTC=9999-99-99T99:99:99</StopDate>
-        <EntryOffset>0</EntryOffset>
-        <ExitOffset>0</ExitOffset>
-        <Transition>TO_SIN__</Transition>
-        <Priority>8</Priority>
-        <Pass>any</Pass>
-        <Season>0</Season>
-        <Enable>True</Enable>
-        <Add>True</Add>
-        <Modify>False</Modify>
-        <ModifyTransition>False</ModifyTransition>
-        <Delete>False</Delete>
-        <ToRemove>False</ToRemove>
-        <Send>True</Send>
-      </Parameters>
-      <Style id="6"/>
-      <ClockWiseCheck>true</ClockWiseCheck>
-      <PoleEnclosed>0</PoleEnclosed>
-      <Center Lat="51.6237719884" Lon="12.6888024318"/>
-      <Shape>POLYGON</Shape>
-      <MapPoints> 53.2, 11.5; 53, 13; 52, 13; 50.2, 15.0; 49.0, 14.5; 53.2, 10; 53.2, 11.5</MapPoints>
-    </MapRegion>
-    <MapRegion id="Rhein_ri-00">
-      <Visible>true</Visible>
-      <Parameters>
-        <ZoneId>Rhein_ri</ZoneId>
-        <StartDate>UTC=0000-00-00T00:00:00</StartDate>
-        <StopDate>UTC=9999-99-99T99:99:99</StopDate>
-        <EntryOffset>0</EntryOffset>
-        <ExitOffset>0</ExitOffset>
-        <Transition>TO_SIN__</Transition>
-        <Priority>8</Priority>
-        <Pass>any</Pass>
-        <Season>0</Season>
-        <Enable>True</Enable>
-        <Add>True</Add>
-        <Modify>False</Modify>
-        <ModifyTransition>False</ModifyTransition>
-        <Delete>False</Delete>
-        <ToRemove>False</ToRemove>
-        <Send>True</Send>
-      </Parameters>
-      <Style id="6"/>
-      <ClockWiseCheck>true</ClockWiseCheck>
-      <PoleEnclosed>0</PoleEnclosed>
-      <Center Lat="50.3537912096" Lon="7.4251227133"/>
-      <Shape>POLYGON</Shape>
-      <MapPoints> 52.5, 6.2; 52, 7; 51, 8; 50.5, 9; 49.0, 10; 47.5, 10; 47.5, 8; 49.5, 8; 50, 7; 51, 6.0; 51.5, 5; 51.8, 5; 52.5, 6.2</MapPoints>
     </MapRegion>
     <MapRegion id="CYFSIN18-00">
       <Visible>true</Visible>
@@ -1001,9 +943,9 @@
       </Parameters>
       <Style id="6"/>
       <ClockWiseCheck>true</ClockWiseCheck>
-      <Center Lat="46.0365657274" Lon="10.0366454308"/>
+      <Center Lat="46.1074327285" Lon="9.9643680712"/>
       <Shape>POLYGON</Shape>
-      <MapPoints> 45.8, 12.8765; 45.5418, 12.1011; 44.1302, 8.3051; 43.2864, 6.1376; 43.2607, 4.3952; 45.5425, 4.4025; 46.4735, 5.8413; 47.1759, 7.361; 47.6693, 9.4527; 47.8334, 11.1577; 47.9722, 12.8728; 48.0852, 14.5961; 48.1725, 16.3262; 46.6415, 14.7677; 46.0447, 13.6461; 45.8, 12.8765</MapPoints>
+      <MapPoints> 45.928, 11.358; 45.217, 10.8494; 45.3334, 8.5613; 45.0508, 7.5329; 44.6137, 7.5985; 44.0171, 8.3495; 43.467, 6.2992; 45.3669, 4.9988; 47.1759, 7.361; 47.6693, 9.4527; 48.1725, 16.3262; 46.6415, 14.7677; 45.9125, 13.8138; 45.9563, 12.6463</MapPoints>
     </MapRegion>
     <MapRegion id="CYFSIN25-00">
       <Visible>true</Visible>
@@ -1080,7 +1022,7 @@
         <ToRemove>False</ToRemove>
         <Send>True</Send>
       </Parameters>
-      <Style id="15"/>
+      <Style id="14"/>
       <Center Lat="-53.1" Lon="73.4993"/>
       <Shape>CIRCLE</Shape>
       <CircleRadius units="km">35</CircleRadius>
@@ -1166,6 +1108,33 @@
       <Shape>POLYGON</Shape>
       <MapPoints> -16, 18; -16, 24.0; -20, 24.0; -20, 18</MapPoints>
     </MapRegion>
+    <MapRegion id="AN6513_2-00">
+      <Visible>true</Visible>
+      <Parameters>
+        <ZoneId>AN6513_2</ZoneId>
+        <Description>Amazon Basin</Description>
+        <StartDate>UTC=0000-00-00T00:00:00</StartDate>
+        <StopDate>UTC=9999-99-99T99:99:99</StopDate>
+        <EntryOffset>0</EntryOffset>
+        <ExitOffset>0</ExitOffset>
+        <Transition>TO_SIN__</Transition>
+        <Priority>6</Priority>
+        <Pass>any</Pass>
+        <Season>0</Season>
+        <Enable>True</Enable>
+        <Add>False</Add>
+        <Modify>False</Modify>
+        <ModifyTransition>False</ModifyTransition>
+        <Delete>False</Delete>
+        <ToRemove>False</ToRemove>
+        <Send>True</Send>
+      </Parameters>
+      <Style id="6"/>
+      <ClockWiseCheck>true</ClockWiseCheck>
+      <Center Lat="-2.2440482773" Lon="-58.7786459548"/>
+      <Shape>POLYGON</Shape>
+      <MapPoints> 1.7598, -48.9751; -0.4639, -46.9432; -2.2016, -48.262; -2.6083, -49.3483; -2.0851, -50.5386; -1.8616, -51.5985; -1.916, -52.0938; -2.0812, -52.3912; -2.8142, -54.8488; -2.6517, -55.9543; -3.229, -57.7772; -3.7317, -58.974; -3.4412, -59.869; -3.6378, -60.533; -4.0635, -61.3612; -4.1284, -61.7676; -4.36, -63.1851; -3.9069, -64.2164; -3.5221, -64.7471; -2.9121, -65.5968; -2.8546, -66.5066; -2.9582, -67.0588; -2.9633, -67.4283; -3.3008, -67.6609; -3.538, -67.9277; -3.7414, -69.0082; -4.9066, -69.501; -4.7057, -69.6292; -4.0939, -69.9251; -3.5519, -69.7084; -2.8386, -68.2617; -2.0843, -67.2517; -2.1559, -64.9034; -3.111, -64.3503; -3.534, -63.8225; -3.6756, -63.0896; -3.336, -61.4597; -2.7789, -59.801; -2.9557, -58.7336; -1.9668, -57.5993; -1.5395, -56.1991; -1.5728, -54.3654; -0.7207, -52.0912; 0.1578, -51.5647; 3.0757, -50.1674; 1.8668, -49.0639</MapPoints>
+    </MapRegion>
     <MapRegion id="AN6528_1-00">
       <Visible>true</Visible>
       <Parameters>
@@ -1247,33 +1216,6 @@
       <Shape>POLYGON</Shape>
       <MapPoints> 39.2133, -28.7423; 39.31, -27.6809; 38.7275, -26.4568; 38.0919, -25.3707; 38.0748, -24.6026; 36.6836, -24.659; 36.67, -25.4012; 37.6699, -26.1788; 38.4182, -27.5497; 38.0296, -28.9228; 38.9162, -29.0208</MapPoints>
     </MapRegion>
-    <MapRegion id="Nig_Vol_-00">
-      <Visible>true</Visible>
-      <Parameters>
-        <ZoneId>Nig_Vol_</ZoneId>
-        <StartDate>UTC=0000-00-00T00:00:00</StartDate>
-        <StopDate>UTC=9999-99-99T99:99:99</StopDate>
-        <EntryOffset>0</EntryOffset>
-        <ExitOffset>0</ExitOffset>
-        <Transition>TO_SIN__</Transition>
-        <Priority>8</Priority>
-        <Pass>any</Pass>
-        <Season>0</Season>
-        <Enable>True</Enable>
-        <Add>True</Add>
-        <Modify>False</Modify>
-        <ModifyTransition>False</ModifyTransition>
-        <Delete>False</Delete>
-        <ToRemove>False</ToRemove>
-        <Send>True</Send>
-      </Parameters>
-      <Style id="6"/>
-      <ClockWiseCheck>true</ClockWiseCheck>
-      <PoleEnclosed>0</PoleEnclosed>
-      <Center Lat="9.5981630047" Lon="0.2833431431"/>
-      <Shape>POLYGON</Shape>
-      <MapPoints> 10.2539, -11.0501; 13.2453, -9.4472; 16.6484, -7.8015; 17.4662, -2.7029; 16.6327, 3.2438; 2.9446, 11.735; 3.2373, 7.2663; 5.274, 2.6597; 4.3966, -5.3207; 8.9903, -6.0697; 10.2539, -11.0501</MapPoints>
-    </MapRegion>
     <MapRegion id="AN6327_1-00">
       <Visible>true</Visible>
       <Parameters>
@@ -1300,6 +1242,60 @@
       <Center Lat="72.0025819872" Lon="108"/>
       <Shape>POLYGON</Shape>
       <MapPoints> 72.5, 107; 72.5, 109; 71.5, 109; 71.5, 107</MapPoints>
+    </MapRegion>
+    <MapRegion id="AN6531_1-00">
+      <Visible>true</Visible>
+      <Parameters>
+        <ZoneId>AN6531_1</ZoneId>
+        <Description>Ligurian and Tyrrhenian Sea</Description>
+        <StartDate>UTC=0000-00-00T00:00:00</StartDate>
+        <StopDate>UTC=9999-99-99T99:99:99</StopDate>
+        <EntryOffset>0</EntryOffset>
+        <ExitOffset>0</ExitOffset>
+        <Transition>TO_SAR__</Transition>
+        <Priority>4</Priority>
+        <Pass>any</Pass>
+        <Season>0</Season>
+        <Enable>True</Enable>
+        <Add>False</Add>
+        <Modify>False</Modify>
+        <ModifyTransition>False</ModifyTransition>
+        <Delete>False</Delete>
+        <ToRemove>False</ToRemove>
+        <Send>True</Send>
+      </Parameters>
+      <Style id="14"/>
+      <ClockWiseCheck>true</ClockWiseCheck>
+      <Center Lat="42.3107831562" Lon="7.7559208527"/>
+      <Shape>POLYGON</Shape>
+      <MapPoints> 40.0, 10; 40.0, 5; 43.6357, 4.9621; 43.3043, 6.1358; 44.7055, 8.5532; 44.4773, 9.5108; 44.223, 10.0021</MapPoints>
+    </MapRegion>
+    <MapRegion id="AN6531_2-00">
+      <Visible>true</Visible>
+      <Parameters>
+        <ZoneId>AN6531_2</ZoneId>
+        <Description>Adriatic Sea</Description>
+        <StartDate>UTC=0000-00-00T00:00:00</StartDate>
+        <StopDate>UTC=9999-99-99T99:99:99</StopDate>
+        <EntryOffset>0</EntryOffset>
+        <ExitOffset>0</ExitOffset>
+        <Transition>TO_SAR__</Transition>
+        <Priority>4</Priority>
+        <Pass>any</Pass>
+        <Season>0</Season>
+        <Enable>True</Enable>
+        <Add>False</Add>
+        <Modify>False</Modify>
+        <ModifyTransition>False</ModifyTransition>
+        <Delete>False</Delete>
+        <ToRemove>False</ToRemove>
+        <Send>True</Send>
+      </Parameters>
+      <Style id="10"/>
+      <ClockWiseCheck>true</ClockWiseCheck>
+      <Center Lat="43.7202366262" Lon="14.7868946719"/>
+      <Shape>POLYGON</Shape>
+      <MapPoints> 45.97, 10.2248; 46.0564, 13.4433; 45.6601, 14.34; 44.8422, 15.3846; 43.7549, 16.1865; 43.5374, 17.0318; 41.9675, 19.7359; 41.242, 16.2381; 41.7338, 15.2374; 42.1435, 14.443; 42.5735, 13.928; 43.5096, 13.3019; 44.0919, 12.2929; 45.2485, 10.5533</MapPoints>
     </MapRegion>
     <MapRegion id="AN6531_3-00">
       <Visible>true</Visible>
@@ -1349,7 +1345,7 @@
         <ToRemove>False</ToRemove>
         <Send>True</Send>
       </Parameters>
-      <Style id="15"/>
+      <Style id="14"/>
       <ClockWiseCheck>true</ClockWiseCheck>
       <Center Lat="-7.0598906869" Lon="112.5"/>
       <Shape>POLYGON</Shape>
@@ -1376,7 +1372,7 @@
         <ToRemove>False</ToRemove>
         <Send>True</Send>
       </Parameters>
-      <Style id="14"/>
+      <Style id="15"/>
       <ClockWiseCheck>true</ClockWiseCheck>
       <Center Lat="13.7918168194" Lon="102.9955414563"/>
       <Shape>POLYGON</Shape>
@@ -1484,7 +1480,7 @@
         <ToRemove>False</ToRemove>
         <Send>True</Send>
       </Parameters>
-      <Style id="15"/>
+      <Style id="14"/>
       <ClockWiseCheck>true</ClockWiseCheck>
       <Center Lat="-3.1215011033" Lon="31.0609237635"/>
       <Shape>POLYGON</Shape>
@@ -1526,7 +1522,7 @@
         <StopDate>UTC=9999-99-99T99:99:99</StopDate>
         <EntryOffset>0</EntryOffset>
         <ExitOffset>0</ExitOffset>
-        <Transition>TO_SIN__</Transition>
+        <Transition>TO_SAR__</Transition>
         <Priority>4</Priority>
         <Pass>any</Pass>
         <Season>0</Season>
@@ -1540,9 +1536,9 @@
       </Parameters>
       <Style id="6"/>
       <ClockWiseCheck>true</ClockWiseCheck>
-      <Center Lat="41.19" Lon="124.9147071260"/>
+      <Center Lat="37.4050793273" Lon="121.2360562828"/>
       <Shape>POLYGON</Shape>
-      <MapPoints> 39.259, 115.474; 42.238, 117.426; 49.265, 128.524; 46.375, 138.136; 42.962, 135.655; 40.13, 129.37; 34.27, 127.071; 33.42, 115.239; 39.259, 115.474</MapPoints>
+      <MapPoints> 34.021, 119.602; 34.163, 117.631; 34.29, 115.499; 36.632, 115.517; 37.726, 115.513; 39.292, 115.506; 40.068, 115.514; 40.084, 118.703; 40.836, 120.029; 41.573, 121.384; 40.749, 123.205; 40.636, 123.633; 40.346, 124.689; 39.631, 125.603; 38.91, 126.498; 37.869, 126.9; 36.826, 127.291; 35.782, 127.671; 34.75, 126.696; 34.542, 125.292; 34.318, 123.896; 34.078, 122.507; 33.822, 121.126; 34.021, 119.602</MapPoints>
     </MapRegion>
     <MapRegion id="AN2687_3-00">
       <Visible>true</Visible>
@@ -1700,38 +1696,11 @@
         <ToRemove>False</ToRemove>
         <Send>True</Send>
       </Parameters>
-      <Style id="14"/>
+      <Style id="15"/>
       <ClockWiseCheck>true</ClockWiseCheck>
       <Center Lat="62.4260333360" Lon="26.5"/>
       <Shape>POLYGON</Shape>
       <MapPoints> 65, 22; 65, 31; 60.0, 31; 60.0, 22</MapPoints>
-    </MapRegion>
-    <MapRegion id="Senegal_-00">
-      <Visible>true</Visible>
-      <Parameters>
-        <ZoneId>Senegal_</ZoneId>
-        <StartDate>UTC=0000-00-00T00:00:00</StartDate>
-        <StopDate>UTC=9999-99-99T99:99:99</StopDate>
-        <EntryOffset>0</EntryOffset>
-        <ExitOffset>0</ExitOffset>
-        <Transition>TO_SIN__</Transition>
-        <Priority>8</Priority>
-        <Pass>any</Pass>
-        <Season>0</Season>
-        <Enable>True</Enable>
-        <Add>True</Add>
-        <Modify>False</Modify>
-        <ModifyTransition>False</ModifyTransition>
-        <Delete>False</Delete>
-        <ToRemove>False</ToRemove>
-        <Send>True</Send>
-      </Parameters>
-      <Style id="6"/>
-      <ClockWiseCheck>true</ClockWiseCheck>
-      <PoleEnclosed>0</PoleEnclosed>
-      <Center Lat="15.5979131028" Lon="-13.1332361561"/>
-      <Shape>POLYGON</Shape>
-      <MapPoints> 16.92, -16.44; 17.19, -16.25; 17.29, -15.6; 17.27, -15.29; 17.22, -15.17; 17.24, -14.95; 17.25, -14.92; 17.28, -14.48; 17.14, -14; 16.74, -13.52; 16.41, -12.76; 16.38, -12.66; 16.03, -11.71; 15.84, -11.06; 15.93, -10.45; 15.95, -10.19; 16.09, -9.76; 15.76, -8.83; 15.51, -8.65; 15.13, -8.67; 15.01, -8.77; 14.54, -9.27; 13.53, -9.82; 13.2, -10.03; 12.86, -10.43; 13.86, -12.43; 13.86, -18.43; 15.69, -18.35; 16.92, -16.44</MapPoints>
     </MapRegion>
     <MapRegion id="AN6524_1-00">
       <Visible>true</Visible>
@@ -1760,6 +1729,33 @@
       <Shape>POLYGON</Shape>
       <MapPoints> 50, 0; 49.0822, -0.1341; 48.4081, -1.2906; 48.1437, -3.1003; 47.46, -1.6789; 45.9889, -0.7524; 42.9846, -1.1164; 43.0509, -3.4792; 43.1957, -5.8853; 43.2375, -8.098; 42.9944, -8.652; 42.377, -8.5467; 41.194, -8.5818; 39.9943, -8.6637; 40.0, -20; 50, -20</MapPoints>
     </MapRegion>
+    <MapRegion id="AN6524_2-00">
+      <Visible>true</Visible>
+      <Parameters>
+        <ZoneId>AN6524_2</ZoneId>
+        <Description>Amazon Basin</Description>
+        <StartDate>UTC=0000-00-00T00:00:00</StartDate>
+        <StopDate>UTC=9999-99-99T99:99:99</StopDate>
+        <EntryOffset>0</EntryOffset>
+        <ExitOffset>0</ExitOffset>
+        <Transition>TO_SIN__</Transition>
+        <Priority>6</Priority>
+        <Pass>any</Pass>
+        <Season>0</Season>
+        <Enable>True</Enable>
+        <Add>False</Add>
+        <Modify>False</Modify>
+        <ModifyTransition>False</ModifyTransition>
+        <Delete>False</Delete>
+        <ToRemove>False</ToRemove>
+        <Send>True</Send>
+      </Parameters>
+      <Style id="6"/>
+      <ClockWiseCheck>true</ClockWiseCheck>
+      <Center Lat="-1.0283250860" Lon="-60.5"/>
+      <Shape>POLYGON</Shape>
+      <MapPoints> -5, -74; 3.0, -74; 3.0, -47; -5, -47</MapPoints>
+    </MapRegion>
     <MapRegion id="AN6524_3-00">
       <Visible>true</Visible>
       <Parameters>
@@ -1783,9 +1779,9 @@
       </Parameters>
       <Style id="6"/>
       <ClockWiseCheck>true</ClockWiseCheck>
-      <Center Lat="46.4971121474" Lon="20.3744753816"/>
+      <Center Lat="46.6706939616" Lon="20.1087356886"/>
       <Shape>POLYGON</Shape>
-      <MapPoints> 44.6492, 29.7639; 44.5885, 29.3241; 43.7419, 28.3721; 43.303, 26.1277; 43.5427, 23.0789; 44.1641, 21.9213; 44.6508, 20.2485; 45.0073, 19.3309; 45.2178, 18.7884; 46.3264, 18.2843; 47.5441, 18.487; 47.5751, 17.6428; 47.7917, 16.9155; 48.0448, 15.3972; 48.1343, 14.1995; 48.7045, 12.351; 48.4131, 10.767; 48.266, 9.935; 48.5842, 9.6443; 48.8567, 9.5579; 48.8821, 9.5628; 49.0475, 11.0214; 49.3032, 12.6108; 48.7987, 14.4036; 48.5019, 16.6157; 48.0385, 19.1326; 47.7498, 19.4651; 46.1757, 19.3894; 45.6348, 19.573; 45.0566, 21.0907; 44.8995, 22.4585; 44.6449, 23.1018; 44.384, 25.3699; 44.9389, 26.9278; 45.1959, 27.516; 45.3199, 27.6837; 45.7315, 28.2473; 45.9607, 28.9286; 45.5349, 30.2584; 44.6492, 29.7639</MapPoints>
+      <MapPoints> 44.5885, 29.3241; 43.7419, 28.3721; 43.303, 26.1277; 43.5151, 23.4361; 44.1641, 21.9213; 44.6508, 20.2485; 45.1977, 19.6207; 45.3223, 19.5232; 47.5188, 18.4187; 48.0448, 15.3972; 48.1784, 14.2224; 48.7045, 12.351; 48.4131, 10.767; 48.266, 9.935; 48.5842, 9.6443; 48.8567, 9.5579; 48.8821, 9.5628; 49.0475, 11.0214; 49.2515, 12.7883; 48.7986, 14.4031; 48.1634, 18.801; 47.1932, 20.0492; 46.2695, 20.4651; 45.572, 20.7899; 44.6449, 23.1018; 44.384, 25.3699; 44.9389, 26.9278; 45.1959, 27.516; 45.3199, 27.6837; 45.7315, 28.2473; 45.9607, 28.9286; 45.5349, 30.2584; 44.6492, 29.7639</MapPoints>
     </MapRegion>
     <MapRegion id="AN6524_4-00">
       <Visible>true</Visible>
@@ -1810,9 +1806,9 @@
       </Parameters>
       <Style id="6"/>
       <ClockWiseCheck>true</ClockWiseCheck>
-      <Center Lat="45.1576797030" Lon="9.0965576008"/>
+      <Center Lat="43.8641202186" Lon="5.8118164789"/>
       <Shape>POLYGON</Shape>
-      <MapPoints> 38.9545, 27.3787; 36.8531, 28.3845; 36.8795, 33.0869; 37.0419, 37.1421; 31.0061, 34.5597; 30.4563, 30.3143; 31.887, 23.3569; 32.5297, 21.1015; 29.9987, 19.9838; 30.5068, 17.0887; 32.1646, 13.5525; 33.1812, 10.7581; 34.173, 9.6048; 35.2456, 10.699; 37.0042, 10.0387; 37.1603, 9.511; 37.0766, 9.1168; 36.8382, 8.8518; 36.7708, 7.3462; 36.8399, 7.0718; 36.8578, 6.6489; 36.889, 6.4907; 36.8075, 6.2945; 36.8064, 6.2047; 36.8328, 6.0365; 36.7479, 5.909; 36.5464, 5.3491; 36.7975, 4.5891; 36.7618, 3.6921; 36.6175, 2.8913; 36.4875, 2.6288; 36.4804, 2.0506; 36.4215, 1.4992; 36.2059, 0.6179; 35.7657, 0.0113; 35.6362, -0.8791; 35.3219, -1.2321; 35.0217, -1.689; 34.97, -2.2762; 35.0976, -3.8971; 35.0685, -4.3896; 35.1478, -4.937; 35.7538, -5.5918; 35.6534, -5.8106; 35.1507, -5.9872; 34.4459, -6.3325; 33.9895, -6.7198; 33.5122, -7.4006; 34.2503, -8.9778; 34.9782, -10.3062; 35.537, -10.6788; 36.332, -11.2024; 38.2602, -11.5044; 40.2273, -11.3578; 41.3252, -11.1852; 42.4226, -11.0068; 44.326, -10.4724; 44.9456, -10.2144; 44.9625, -8.5801; 44.956, -6.9455; 44.9263, -5.3119; 44.8734, -3.6807; 46.2461, -3.6314; 46.6876, -4.7672; 47.181, -5.9662; 48.1954, -7.1873; 49.1963, -8.4573; 49.6375, -8.8839; 50.0985, -9.1149; 50.4691, -9.9585; 50.6918, -10.6047; 51.161, -11.5632; 51.6149, -12.0393; 51.9526, -12.0718; 53.7674, -12.4413; 54.8345, -10.4387; 55.8926, -10.2398; 56.9502, -10.03; 57.9074, -9.0029; 58.8558, -7.9202; 59.7698, -5.0308; 60.7484, -3.3863; 61.2408, -0.5745; 61.9966, 0.9176; 62.0246, 3.2141; 62.0146, 5.5121; 60.9028, 5.8217; 59.7902, 6.1106; 58.6768, 6.3809; 58.2802, 7.3184; 58.5446, 8.3013; 59.3599, 9.4049; 60.0579, 11.1534; 61.5878, 12.1223; 63.6818, 14.309; 66.5474, 18.5407; 66.8663, 30.2796; 62.9836, 36.3232; 61.1345, 37.2226; 59.1663, 29.6357; 54.2505, 19.7808; 53.2011, 11.2928; 53.0558, 7.1737; 49.1611, 1.1159; 48.1274, -3.5353; 47.4005, -1.6344; 45.9092, -0.7458; 44.8496, -0.8955; 43.7896, -1.04; 43.0989, -1.4171; 43.1672, -2.4911; 43.2226, -4.1172; 43.255, -5.7457; 43.448, -7.7876; 43.2114, -7.8509; 43.1442, -8.3873; 42.8123, -8.5726; 40.8554, -8.4107; 39.3738, -8.8963; 38.8203, -8.6518; 37.3517, -8.4832; 37.3098, -6.3837; 36.3626, -5.5676; 36.8367, -4.8798; 37.0427, -3.8326; 36.9482, -3.2833; 37.0268, -2.2426; 37.621, -1.5814; 37.7707, -1.0604; 38.7528, -0.3898; 39.4209, -0.5907; 40.1239, -0.0541; 41.1846, 0.8806; 41.5025, 2.0016; 42.0197, 2.947; 42.8695, 2.7458; 43.5543, 3.1015; 43.7898, 4.3837; 43.3453, 6.1043; 43.4202, 6.3498; 43.8928, 7.0587; 45.1817, 10.4788; 45.6755, 12.1612; 46.0675, 13.305; 45.5484, 14.479; 44.8236, 14.479; 43.7103, 16.1251; 43.488, 17.0302; 42.3565, 19.1016; 41.9442, 19.6949; 40.976, 19.6913; 40.2185, 19.8615; 39.4116, 20.7221; 38.7706, 21.8015; 39.4234, 22.3063; 40.5144, 22.3063; 40.9533, 22.9494; 40.7178, 23.3444; 41.3241, 24.7961; 40.8505, 26.8394; 41.335, 27.9596; 41.0923, 29.1684; 40.6933, 30.1821; 40.0097, 28.8624; 40.1952, 26.8692; 39.7951, 26.3663; 39.6717, 27.1054; 38.9545, 27.3787</MapPoints>
+      <MapPoints> 37.7407, 27.7586; 35.0453, 27.5038; 33.8446, 26.6533; 34.0566, 23.4227; 35.159, 21.2052; 37.3815, 19.1257; 36.9733, 17.3498; 36.1998, 16.2754; 35.4169, 15.2221; 35.7393, 13.526; 36.5845, 11.3927; 36.8564, 10.8214; 36.6466, 10.3823; 36.7736, 10.0086; 37.0042, 10.0387; 37.1603, 9.511; 37.0766, 9.1168; 36.8382, 8.8518; 36.7708, 7.3462; 36.8399, 7.0718; 36.8578, 6.6489; 36.889, 6.4907; 36.8075, 6.2945; 36.8064, 6.2047; 36.8328, 6.0365; 36.7479, 5.909; 36.5464, 5.3491; 36.7975, 4.5891; 36.7618, 3.6921; 36.6175, 2.8913; 36.4875, 2.6288; 36.4804, 2.0506; 36.4215, 1.4992; 36.2059, 0.6179; 35.7657, 0.0113; 35.6362, -0.8791; 35.3219, -1.2321; 35.0217, -1.689; 34.97, -2.2762; 35.0976, -3.8971; 35.0685, -4.3896; 35.1478, -4.937; 35.7538, -5.5918; 35.6534, -5.8106; 35.1507, -5.9872; 34.4459, -6.3325; 33.9895, -6.7198; 33.5122, -7.4006; 34.2503, -8.9778; 34.9782, -10.3062; 35.537, -10.6788; 36.332, -11.2024; 38.2602, -11.5044; 40.2273, -11.3578; 41.3252, -11.1852; 42.4226, -11.0068; 44.326, -10.4724; 44.9456, -10.2144; 44.9625, -8.5801; 44.956, -6.9455; 44.9263, -5.3119; 44.8734, -3.6807; 46.2461, -3.6314; 46.6876, -4.7672; 47.181, -5.9662; 48.1954, -7.1873; 49.1963, -8.4573; 49.6375, -8.8839; 50.0985, -9.1149; 50.4691, -9.9585; 50.6918, -10.6047; 51.161, -11.5632; 51.6149, -12.0393; 51.9526, -12.0718; 53.7674, -12.4413; 54.8345, -10.4387; 55.8926, -10.2398; 56.9502, -10.03; 57.9074, -9.0029; 58.8558, -7.9202; 59.7698, -5.0308; 60.7484, -3.3863; 61.2408, -0.5745; 61.9966, 0.9176; 62.0146, 5.5121; 58.6768, 6.3809; 58.2802, 7.3184; 58.5446, 8.3013; 59.3599, 9.4049; 60.0579, 11.1534; 59.0743, 12.5388; 58.0766, 13.8468; 57.0661, 15.0836; 55.961, 15.4133; 54.8548, 15.7249; 53.7477, 16.0199; 53.777, 13.9975; 53.7723, 11.9739; 53.7336, 9.9525; 53.809, 8.7957; 53.367, 6.4003; 52.8239, 5.2549; 51.9685, 4.3113; 51.1058, 3.4032; 50.6619, 2.3466; 49.75, 1.5871; 48.8235, -0.3667; 48.4863, -1.9618; 48.1274, -3.5353; 47.4005, -1.6344; 45.9092, -0.7458; 44.8496, -0.8955; 43.7896, -1.04; 43.0989, -1.4171; 43.1672, -2.4911; 43.2226, -4.1172; 43.255, -5.7457; 43.448, -7.7876; 43.2114, -7.8509; 43.1442, -8.3873; 42.8123, -8.5726; 40.8554, -8.4107; 39.3738, -8.8963; 38.8203, -8.6518; 37.3517, -8.4832; 37.3098, -6.3837; 36.3626, -5.5676; 36.8367, -4.8798; 37.0427, -3.8326; 36.9482, -3.2833; 37.0268, -2.2426; 37.621, -1.5814; 37.7707, -1.0604; 38.7528, -0.3898; 39.4209, -0.5907; 40.1239, -0.0541; 41.1846, 0.8806; 41.5025, 2.0016; 42.0197, 2.947; 42.8695, 2.7458; 43.5543, 3.1015; 43.7898, 4.3837; 43.3453, 6.1043; 43.4202, 6.3498; 43.8928, 7.0587; 44.6863, 8.5246; 44.4488, 9.5984; 44.0866, 10.2522; 43.8837, 10.4081; 43.0294, 10.856; 42.4237, 11.5961; 42.2604, 11.7766; 41.5517, 12.7498; 41.1999, 14.1439; 40.1196, 15.8002; 40.0246, 15.9672; 39.9575, 16.0944; 39.9441, 16.4031; 40.0357, 16.4675; 40.8534, 17.1336; 41.49, 15.8353; 42.1117, 14.5119; 42.7288, 13.3716; 43.5004, 13.3716; 44.1523, 12.2937; 44.5338, 12.0537; 45.3231, 11.917; 45.6133, 12.1966; 46.0675, 13.305; 45.5484, 14.479; 44.8236, 14.479; 43.7103, 16.1251; 43.488, 17.0302; 42.3565, 19.1016; 41.9442, 19.6949; 40.976, 19.6913; 40.2185, 19.8615; 39.4116, 20.7221; 38.7706, 21.8015; 39.4234, 22.3063; 40.5144, 22.3063; 40.9533, 22.9494; 40.7178, 23.3444; 41.3241, 24.7961; 40.8505, 26.8394; 41.335, 27.9596; 41.0923, 29.1684; 40.6933, 30.1821; 40.0097, 28.8624; 40.1952, 26.8692; 39.7951, 26.3663; 39.6717, 27.1054; 38.9545, 27.3787; 37.7407, 27.7586</MapPoints>
     </MapRegion>
     <MapRegion id="AN6524_5-00">
       <Visible>true</Visible>
@@ -1867,6 +1863,34 @@
       <Center Lat="59.3519563193" Lon="-10.0"/>
       <Shape>POLYGON</Shape>
       <MapPoints> 70, -20; 70, 0; 50, 0; 50, -20</MapPoints>
+    </MapRegion>
+    <MapRegion id="ESurge_1-00">
+      <Visible>true</Visible>
+      <Parameters>
+        <ZoneId>ESurge_1</ZoneId>
+        <Description>Indian and Bay of Bengal Coast. Requirement from ESurge</Description>
+        <StartDate>UTC=0000-00-00T00:00:00</StartDate>
+        <StopDate>UTC=9999-99-99T99:99:99</StopDate>
+        <EntryOffset>0</EntryOffset>
+        <ExitOffset>0</ExitOffset>
+        <Transition>TO_SAR__</Transition>
+        <Priority>4</Priority>
+        <Pass>any</Pass>
+        <Season>0</Season>
+        <Enable>True</Enable>
+        <Add>False</Add>
+        <Modify>False</Modify>
+        <ModifyTransition>False</ModifyTransition>
+        <Delete>False</Delete>
+        <ToRemove>False</ToRemove>
+        <Send>True</Send>
+      </Parameters>
+      <Style id="6"/>
+      <ClockWiseCheck>true</ClockWiseCheck>
+      <PoleEnclosed>0</PoleEnclosed>
+      <Center Lat="16.3339465538" Lon="81.8826193438"/>
+      <Shape>POLYGON</Shape>
+      <MapPoints> 24.0005, 67.8789; 23.2325, 70.4854; 22.4088, 72.8644; 21.9826, 73.1416; 20.3349, 73.1871; 18.8419, 73.2748; 16.2007, 73.756; 14.433, 74.687; 12.7915, 75.0888; 11.1038, 76.0747; 9.4284, 76.5734; 8.6595, 76.996; 8.2264, 77.4368; 8.4672, 77.8178; 9.307, 78.4138; 10.3696, 79.1382; 10.5967, 79.5862; 11.8761, 79.4367; 12.9908, 79.968; 14.3109, 79.8854; 15.7843, 79.9499; 16.2714, 80.9649; 16.8315, 81.6686; 17.4897, 82.5079; 18.502, 83.9691; 19.59, 84.9015; 20.3645, 86.3887; 21.5646, 86.7663; 22.3199, 87.9841; 22.5992, 88.8454; 23.724, 88.9298; 24.3306, 89.1175; 24.1039, 90.3698; 23.4171, 91.2107; 23.0016, 91.7798; 21.4558, 92.3166; 20.8928, 92.9776; 19.5677, 94.1766; 17.7477, 94.9501; 16.821, 94.9495; 16.6828, 95.5589; 17.2128, 96.4936; 17.8273, 97.0902; 16.183, 98.0368; 15.0076, 98.0416; 15.0027, 94.4732; 15.4704, 93.7324; 16.5439, 93.6463; 17.8139, 93.8581; 18.6169, 93.1841; 19.695, 92.6122; 20.504, 91.5938; 20.4975, 88.6438; 20.4928, 87.938; 19.7675, 87.2434; 19.2274, 86.1134; 18.4777, 85.1724; 17.5109, 84.1755; 16.4509, 83.0297; 15.6575, 81.8828; 14.99, 80.7883; 13.2884, 80.9743; 12.0644, 80.6426; 10.6437, 80.5254; 9.7043, 81.4178; 8.2007, 82.1759; 7.0092, 82.4718; 5.7016, 81.8595; 5.2438, 80.5377; 6.0351, 79.5065; 8.113, 79.1598; 8.2298, 78.684; 7.4698, 77.9041; 7.4308, 77.064; 8.2147, 76.2794; 10.4503, 75.2162; 11.8143, 74.581; 14.1078, 73.6297; 16.1722, 72.6173; 18.6865, 72.0932; 20.058, 71.9709; 19.9548, 70.8475; 20.5788, 69.7351; 21.674, 68.6567; 22.9565, 67.7787; 24.0135, 66.9889; 24.0005, 67.8789</MapPoints>
     </MapRegion>
     <MapRegion id="CP40_001-00">
       <Visible>true</Visible>
@@ -2064,6 +2088,62 @@
       <Shape>POLYGON</Shape>
       <MapPoints> 56.316, 109.135; 55.855, 111.378; 53.156, 109.625; 51.654, 106.56; 50.908, 104.584; 51.849, 102.901; 54.088, 107.224; 56.316, 109.135</MapPoints>
     </MapRegion>
+    <MapRegion id="Po_river-00">
+      <Visible>true</Visible>
+      <Parameters>
+        <ZoneId>Po_river</ZoneId>
+        <Description>Po river</Description>
+        <StartDate>UTC=0000-00-00T00:00:00</StartDate>
+        <StopDate>UTC=9999-99-99T99:99:99</StopDate>
+        <EntryOffset>0</EntryOffset>
+        <ExitOffset>0</ExitOffset>
+        <Transition>TO_SAR__</Transition>
+        <Priority>4</Priority>
+        <Pass>any</Pass>
+        <Season>0</Season>
+        <Enable>True</Enable>
+        <Add>False</Add>
+        <Modify>False</Modify>
+        <ModifyTransition>False</ModifyTransition>
+        <Delete>False</Delete>
+        <ToRemove>False</ToRemove>
+        <Send>True</Send>
+      </Parameters>
+      <Style id="6"/>
+      <ClockWiseCheck>true</ClockWiseCheck>
+      <PoleEnclosed>0</PoleEnclosed>
+      <Center Lat="44.9255233013" Lon="9.5358732261"/>
+      <Shape>POLYGON</Shape>
+      <MapPoints> 45.357, 7.304; 45.357, 12.323; 44.324, 12.323; 44.326, 7.3; 45.357, 7.304</MapPoints>
+    </MapRegion>
+    <MapRegion id="Danube__-00">
+      <Visible>true</Visible>
+      <Parameters>
+        <ZoneId>Danube__</ZoneId>
+        <Description>Danuve river</Description>
+        <StartDate>UTC=0000-00-00T00:00:00</StartDate>
+        <StopDate>UTC=9999-99-99T99:99:99</StopDate>
+        <EntryOffset>0</EntryOffset>
+        <ExitOffset>0</ExitOffset>
+        <Transition>TO_SAR__</Transition>
+        <Priority>4</Priority>
+        <Pass>any</Pass>
+        <Season>0</Season>
+        <Enable>True</Enable>
+        <Add>False</Add>
+        <Modify>False</Modify>
+        <ModifyTransition>False</ModifyTransition>
+        <Delete>False</Delete>
+        <ToRemove>False</ToRemove>
+        <Send>True</Send>
+      </Parameters>
+      <Style id="6"/>
+      <ClockWiseCheck>true</ClockWiseCheck>
+      <PoleEnclosed>0</PoleEnclosed>
+      <Center Lat="46.1224821897" Lon="18.8520947815"/>
+      <Shape>POLYGON</Shape>
+      <MapPoints> 46.9, 18.25; 46.9, 19.75; 44.95, 19.75; 44.95, 18.25; 46.9, 18.25</MapPoints>
+    </MapRegion>
     <MapRegion id="Khovsgal-00">
       <Visible>true</Visible>
       <Parameters>
@@ -2092,33 +2172,6 @@
       <Shape>POLYGON</Shape>
       <MapPoints> 50.616, 99.449; 51.805, 100.396; 51.471, 101.433; 50.255, 100.492; 50.616, 99.449</MapPoints>
     </MapRegion>
-    <MapRegion id="Garonne_-00">
-      <Visible>true</Visible>
-      <Parameters>
-        <ZoneId>Garonne_</ZoneId>
-        <StartDate>UTC=0000-00-00T00:00:00</StartDate>
-        <StopDate>UTC=9999-99-99T99:99:99</StopDate>
-        <EntryOffset>0</EntryOffset>
-        <ExitOffset>0</ExitOffset>
-        <Transition>TO_SAR__</Transition>
-        <Priority>4</Priority>
-        <Pass>any</Pass>
-        <Season>0</Season>
-        <Enable>True</Enable>
-        <Add>False</Add>
-        <Modify>False</Modify>
-        <ModifyTransition>False</ModifyTransition>
-        <Delete>False</Delete>
-        <ToRemove>False</ToRemove>
-        <Send>True</Send>
-      </Parameters>
-      <Style id="6"/>
-      <ClockWiseCheck>true</ClockWiseCheck>
-      <PoleEnclosed>0</PoleEnclosed>
-      <Center Lat="44.4749784859" Lon="0.1312172319"/>
-      <Shape>POLYGON</Shape>
-      <MapPoints> 43.344, 1.235; 43.958, 1.046; 44.316, -0.031; 44.301, -1.234; 44.409, -1.332; 46.359, -1.636; 46.34, -1.117; 45.068, -0.312; 44.923, -0.059; 44.281, 0.766; 43.973, 1.386; 43.487, 1.574; 43.344, 1.235</MapPoints>
-    </MapRegion>
     <MapRegion id="AN2544_2-00">
       <Visible>true</Visible>
       <Parameters>
@@ -2145,6 +2198,60 @@
       <Center Lat="-2.9982993676" Lon="22.6098649931"/>
       <Shape>POLYGON</Shape>
       <MapPoints> -6.0, 12.0; -2, 16; 2.5, 19; 2.5, 24.0; 0, 26; -4.5, 27; -5.5, 28; -4.5, 29.0; -3.0, 29.0; -3.0, 29.5; -9, 31.5; -10, 29.0; -10, 28; -5, 26; 1, 23; 1.5, 21; 1, 19; -3.0, 18.5; -6.5, 12.5</MapPoints>
+    </MapRegion>
+    <MapRegion id="AN2544_7-00">
+      <Visible>true</Visible>
+      <Parameters>
+        <ZoneId>AN2544_7</ZoneId>
+        <Description>Amazon Basin</Description>
+        <StartDate>UTC=0000-00-00T00:00:00</StartDate>
+        <StopDate>UTC=9999-99-99T99:99:99</StopDate>
+        <EntryOffset>0</EntryOffset>
+        <ExitOffset>0</ExitOffset>
+        <Transition>TO_SIN__</Transition>
+        <Priority>6</Priority>
+        <Pass>any</Pass>
+        <Season>0</Season>
+        <Enable>True</Enable>
+        <Add>False</Add>
+        <Modify>False</Modify>
+        <ModifyTransition>False</ModifyTransition>
+        <Delete>False</Delete>
+        <ToRemove>False</ToRemove>
+        <Send>True</Send>
+      </Parameters>
+      <Style id="6"/>
+      <ClockWiseCheck>true</ClockWiseCheck>
+      <Center Lat="-3.1260282478" Lon="-60.2497283499"/>
+      <Shape>POLYGON</Shape>
+      <MapPoints> -4.5, -62; -3.5, -62; -2, -61.5; -2, -61; -3.0, -60.0; -2.5, -58.0; -3.5, -58.0; -3.5, -60.0; -4, -61</MapPoints>
+    </MapRegion>
+    <MapRegion id="AN2544_8-00">
+      <Visible>true</Visible>
+      <Parameters>
+        <ZoneId>AN2544_8</ZoneId>
+        <Description>East African lakes (Area of the Lake Victoria)</Description>
+        <StartDate>UTC=0000-00-00T00:00:00</StartDate>
+        <StopDate>UTC=9999-99-99T99:99:99</StopDate>
+        <EntryOffset>0</EntryOffset>
+        <ExitOffset>0</ExitOffset>
+        <Transition>TO_SIN__</Transition>
+        <Priority>6</Priority>
+        <Pass>any</Pass>
+        <Season>0</Season>
+        <Enable>True</Enable>
+        <Add>False</Add>
+        <Modify>False</Modify>
+        <ModifyTransition>False</ModifyTransition>
+        <Delete>False</Delete>
+        <ToRemove>False</ToRemove>
+        <Send>True</Send>
+      </Parameters>
+      <Style id="6"/>
+      <ClockWiseCheck>true</ClockWiseCheck>
+      <Center Lat="-0.5983013969" Lon="31.6529511729"/>
+      <Shape>POLYGON</Shape>
+      <MapPoints> 2.5, 30.0; 2.5, 33.5; 0, 35; -3.0, 34; -3.0, 28.5</MapPoints>
     </MapRegion>
     <MapRegion id="AN2544_9-00">
       <Visible>true</Visible>
@@ -2201,172 +2308,11 @@
       <Shape>POLYGON</Shape>
       <MapPoints> 23.714, 83.866; 25.801, 83.599; 26.209, 88.92; 24.27, 89.16; 23.677, 88.942; 23.721, 87.362; 23.715, 85.08; 23.714, 83.866</MapPoints>
     </MapRegion>
-    <MapRegion id="Arkansas-00">
+    <MapRegion id="Brahmapu-00">
       <Visible>true</Visible>
       <Parameters>
-        <ZoneId>Arkansas</ZoneId>
-        <StartDate>UTC=0000-00-00T00:00:00</StartDate>
-        <StopDate>UTC=9999-99-99T99:99:99</StopDate>
-        <EntryOffset>0</EntryOffset>
-        <ExitOffset>0</ExitOffset>
-        <Transition>TO_SAR__</Transition>
-        <Priority>7</Priority>
-        <Pass>any</Pass>
-        <Season>0</Season>
-        <Enable>True</Enable>
-        <Add>False</Add>
-        <Modify>False</Modify>
-        <ModifyTransition>False</ModifyTransition>
-        <Delete>False</Delete>
-        <ToRemove>False</ToRemove>
-        <Send>True</Send>
-      </Parameters>
-      <Style id="6"/>
-      <ClockWiseCheck>true</ClockWiseCheck>
-      <PoleEnclosed>0</PoleEnclosed>
-      <Center Lat="33.0992598927" Lon="-94.8574371680"/>
-      <Shape>POLYGON</Shape>
-      <MapPoints> 28.998, -95.217; 30.359, -97.232; 30.982, -97.699; 38.779, -96.977; 37.698, -94.232; 35.725, -94.711; 30.424, -90.91; 30.046, -91.575; 29.448, -91.607; 29.689, -92.949; 29.549, -94.448; 28.998, -95.217</MapPoints>
-    </MapRegion>
-    <MapRegion id="Nile_EGY-00">
-      <Visible>true</Visible>
-      <Parameters>
-        <ZoneId>Nile_EGY</ZoneId>
-        <StartDate>UTC=0000-00-00T00:00:00</StartDate>
-        <StopDate>UTC=9999-99-99T99:99:99</StopDate>
-        <EntryOffset>0</EntryOffset>
-        <ExitOffset>0</ExitOffset>
-        <Transition>TO_SAR__</Transition>
-        <Priority>7</Priority>
-        <Pass>any</Pass>
-        <Season>0</Season>
-        <Enable>True</Enable>
-        <Add>False</Add>
-        <Modify>False</Modify>
-        <ModifyTransition>False</ModifyTransition>
-        <Delete>False</Delete>
-        <ToRemove>False</ToRemove>
-        <Send>True</Send>
-      </Parameters>
-      <Style id="6"/>
-      <ClockWiseCheck>true</ClockWiseCheck>
-      <PoleEnclosed>0</PoleEnclosed>
-      <Center Lat="29.2359444477" Lon="30.8859517767"/>
-      <Shape>POLYGON</Shape>
-      <MapPoints> 27.119, 30.15; 31.077, 29.76; 31.615, 30.861; 31.371, 32.346; 30.51, 32.034; 30.086, 31.481; 26.808, 31.25; 27.119, 30.15</MapPoints>
-    </MapRegion>
-    <MapRegion id="Para_Arg-00">
-      <Visible>true</Visible>
-      <Parameters>
-        <ZoneId>Para_Arg</ZoneId>
-        <StartDate>UTC=0000-00-00T00:00:00</StartDate>
-        <StopDate>UTC=9999-99-99T99:99:99</StopDate>
-        <EntryOffset>0</EntryOffset>
-        <ExitOffset>0</ExitOffset>
-        <Transition>TO_SAR__</Transition>
-        <Priority>7</Priority>
-        <Pass>any</Pass>
-        <Season>0</Season>
-        <Enable>True</Enable>
-        <Add>False</Add>
-        <Modify>False</Modify>
-        <ModifyTransition>False</ModifyTransition>
-        <Delete>False</Delete>
-        <ToRemove>False</ToRemove>
-        <Send>True</Send>
-      </Parameters>
-      <Style id="6"/>
-      <ClockWiseCheck>true</ClockWiseCheck>
-      <PoleEnclosed>0</PoleEnclosed>
-      <Center Lat="-27.8651437331" Lon="-59.0067899699"/>
-      <Shape>POLYGON</Shape>
-      <MapPoints> -26.745, -58.805; -27.8, -58.592; -29.502, -59.294; -28.531, -59.55; -26.745, -58.805</MapPoints>
-    </MapRegion>
-    <MapRegion id="Seine_FR-00">
-      <Visible>true</Visible>
-      <Parameters>
-        <ZoneId>Seine_FR</ZoneId>
-        <StartDate>UTC=0000-00-00T00:00:00</StartDate>
-        <StopDate>UTC=9999-99-99T99:99:99</StopDate>
-        <EntryOffset>0</EntryOffset>
-        <ExitOffset>0</ExitOffset>
-        <Transition>TO_SAR__</Transition>
-        <Priority>7</Priority>
-        <Pass>any</Pass>
-        <Season>0</Season>
-        <Enable>True</Enable>
-        <Add>False</Add>
-        <Modify>False</Modify>
-        <ModifyTransition>False</ModifyTransition>
-        <Delete>False</Delete>
-        <ToRemove>False</ToRemove>
-        <Send>True</Send>
-      </Parameters>
-      <Style id="6"/>
-      <ClockWiseCheck>true</ClockWiseCheck>
-      <PoleEnclosed>0</PoleEnclosed>
-      <Center Lat="48.9881430364" Lon="1.6889416389"/>
-      <Shape>POLYGON</Shape>
-      <MapPoints> 49.432, -0.064; 49.749, 0.287; 48.9, 3.502; 48.222, 3.839; 48.003, 2.836; 48.522, 2.461; 49.212, 0.373; 49.432, -0.064</MapPoints>
-    </MapRegion>
-    <MapRegion id="Yukon_US-00">
-      <Visible>true</Visible>
-      <Parameters>
-        <ZoneId>Yukon_US</ZoneId>
-        <StartDate>UTC=0000-00-00T00:00:00</StartDate>
-        <StopDate>UTC=9999-99-99T99:99:99</StopDate>
-        <EntryOffset>0</EntryOffset>
-        <ExitOffset>0</ExitOffset>
-        <Transition>TO_SAR__</Transition>
-        <Priority>7</Priority>
-        <Pass>any</Pass>
-        <Season>0</Season>
-        <Enable>True</Enable>
-        <Add>False</Add>
-        <Modify>False</Modify>
-        <ModifyTransition>False</ModifyTransition>
-        <Delete>False</Delete>
-        <ToRemove>False</ToRemove>
-        <Send>True</Send>
-      </Parameters>
-      <Style id="6"/>
-      <ClockWiseCheck>true</ClockWiseCheck>
-      <PoleEnclosed>0</PoleEnclosed>
-      <Center Lat="64.2162961392" Lon="-153.6685663249"/>
-      <Shape>POLYGON</Shape>
-      <MapPoints> 61.645, -162.78; 62.651, -161.208; 65.46, -158.729; 67.289, -144.603; 64.617, -139.94; 63.851, -155.432; 59.66, -160.441; 61.645, -162.78</MapPoints>
-    </MapRegion>
-    <MapRegion id="Uyuni_BO-00">
-      <Visible>true</Visible>
-      <Parameters>
-        <ZoneId>Uyuni_BO</ZoneId>
-        <StartDate>UTC=0000-00-00T00:00:00</StartDate>
-        <StopDate>UTC=9999-99-99T99:99:99</StopDate>
-        <EntryOffset>0</EntryOffset>
-        <ExitOffset>0</ExitOffset>
-        <Transition>TO_LRM__</Transition>
-        <Priority>7</Priority>
-        <Pass>any</Pass>
-        <Season>0</Season>
-        <Enable>True</Enable>
-        <Add>False</Add>
-        <Modify>False</Modify>
-        <ModifyTransition>False</ModifyTransition>
-        <Delete>False</Delete>
-        <ToRemove>False</ToRemove>
-        <Send>True</Send>
-      </Parameters>
-      <Style id="7"/>
-      <ClockWiseCheck>true</ClockWiseCheck>
-      <Center Lat="-19.9481044373" Lon="-67.6218449973"/>
-      <Shape>RECTANGLE</Shape>
-      <MapPoints> -19.0046, -68.5341; -19.0046, -66.706; -20.8868, -66.706; -20.8868, -68.5341</MapPoints>
-    </MapRegion>
-    <MapRegion id="AmazoSIN-00">
-      <Visible>true</Visible>
-      <Parameters>
-        <ZoneId>AmazoSIN</ZoneId>
-        <Description>Amazon+guapore in SARIN</Description>
+        <ZoneId>Brahmapu</ZoneId>
+        <Description>Brahmaputra river</Description>
         <StartDate>UTC=0000-00-00T00:00:00</StartDate>
         <StopDate>UTC=9999-99-99T99:99:99</StopDate>
         <EntryOffset>0</EntryOffset>
@@ -2386,9 +2332,9 @@
       <Style id="6"/>
       <ClockWiseCheck>true</ClockWiseCheck>
       <PoleEnclosed>0</PoleEnclosed>
-      <Center Lat="-6.0523227188" Lon="-66.7147260290"/>
+      <Center Lat="25.3695653708" Lon="89.5637745084"/>
       <Shape>POLYGON</Shape>
-      <MapPoints> 3.0003, -60.9997; -5.0, -61; -4.9993, -56.5976; -6.0591, -57.1327; -6.7672, -58.3401; -7.6912, -60.5413; -12.0475, -63.593; -13.2167, -60.4711; -14.0083, -60.457; -14.0424, -64.5872; -16.5764, -64.5831; -16.8754, -65.8746; -12.354, -73.2822; -5.6479, -76.8431; 1.4421, -76.2442; 3.0, -74; 3.0003, -60.9997</MapPoints>
+      <MapPoints> 26.21, 88.92; 26.28, 90.14; 24.06, 90.13; 24.28, 89.13; 26.21, 88.92</MapPoints>
     </MapRegion>
     <MapRegion id="AN2544_A-00">
       <Visible>true</Visible>
@@ -2416,6 +2362,33 @@
       <Center Lat="62.4822990990" Lon="71.7404391784"/>
       <Shape>POLYGON</Shape>
       <MapPoints> 67, 67; 67, 69; 66.5, 69; 66, 66.5; 63, 66.5; 61.5, 68.5; 61.5, 76; 59.0, 82; 58.0, 82; 60.5, 76; 60.5, 69; 62.5, 64.5; 66, 64.5</MapPoints>
+    </MapRegion>
+    <MapRegion id="SAR_Pico-00">
+      <Visible>true</Visible>
+      <Parameters>
+        <ZoneId>SAR_Pico</ZoneId>
+        <Description>SAR over Pacific - Zone suggested by N. Picot</Description>
+        <StartDate>UTC=0000-00-00T00:00:00</StartDate>
+        <StopDate>UTC=9999-99-99T99:99:99</StopDate>
+        <EntryOffset>0</EntryOffset>
+        <ExitOffset>0</ExitOffset>
+        <Transition>TO_SAR__</Transition>
+        <Priority>4</Priority>
+        <Pass>any</Pass>
+        <Season>0</Season>
+        <Enable>True</Enable>
+        <Add>False</Add>
+        <Modify>False</Modify>
+        <ModifyTransition>False</ModifyTransition>
+        <Delete>False</Delete>
+        <ToRemove>False</ToRemove>
+        <Send>True</Send>
+      </Parameters>
+      <Style id="14"/>
+      <ClockWiseCheck>true</ClockWiseCheck>
+      <Center Lat="-15.8934196278" Lon="-112.5176798859"/>
+      <Shape>RECTANGLE</Shape>
+      <MapPoints> -5, -140; -5, -85; -25, -85; -25, -140</MapPoints>
     </MapRegion>
   </MapRegions>
 
@@ -2551,7 +2524,7 @@
       <StyleExFlags>0x40001000</StyleExFlags>
       <FontStyle>0x008110B4</FontStyle>
       <PenColor>0x00FFFFFF</PenColor>
-      <FillColor>0x00008000</FillColor>
+      <FillColor>0x00000080</FillColor>
       <TextColor>0x00FFFFFF</TextColor>
       <BackColor>0x00FFFFFF</BackColor>
     </Style>
@@ -2560,7 +2533,7 @@
       <StyleExFlags>0x40001000</StyleExFlags>
       <FontStyle>0x008110B4</FontStyle>
       <PenColor>0x00FFFFFF</PenColor>
-      <FillColor>0x00000080</FillColor>
+      <FillColor>0x00008000</FillColor>
       <TextColor>0x00FFFFFF</TextColor>
       <BackColor>0x00FFFFFF</BackColor>
     </Style>
@@ -2646,20 +2619,20 @@
       <BackColor>0x00FFFFFF</BackColor>
     </Style>
     <Style id="25">
-      <StyleFlags>0x01606400</StyleFlags>
-      <StyleExFlags>0x40001000</StyleExFlags>
-      <FontStyle>0x008110B4</FontStyle>
-      <PenColor>0x00FFFFFF</PenColor>
-      <FillColor>0x00FF6699</FillColor>
-      <TextColor>0x00FFFFFF</TextColor>
-      <BackColor>0x00FFFFFF</BackColor>
-    </Style>
-    <Style id="26">
       <StyleFlags>0x01607800</StyleFlags>
       <StyleExFlags>0x40001000</StyleExFlags>
       <FontStyle>0x008110B4</FontStyle>
       <PenColor>0x00FFFFFF</PenColor>
       <FillColor>0x000000FF</FillColor>
+      <TextColor>0x00FFFFFF</TextColor>
+      <BackColor>0x00FFFFFF</BackColor>
+    </Style>
+    <Style id="26">
+      <StyleFlags>0x01604B00</StyleFlags>
+      <StyleExFlags>0x40001000</StyleExFlags>
+      <FontStyle>0x008110B4</FontStyle>
+      <PenColor>0x00FFFFFF</PenColor>
+      <FillColor>0x00008000</FillColor>
       <TextColor>0x00FFFFFF</TextColor>
       <BackColor>0x00FFFFFF</BackColor>
     </Style>
@@ -2673,11 +2646,11 @@
       <BackColor>0x00FFFFFF</BackColor>
     </Style>
     <Style id="28">
-      <StyleFlags>0x01607800</StyleFlags>
+      <StyleFlags>0x01606400</StyleFlags>
       <StyleExFlags>0x40001000</StyleExFlags>
       <FontStyle>0x008110B4</FontStyle>
       <PenColor>0x00FFFFFF</PenColor>
-      <FillColor>0x0000FF00</FillColor>
+      <FillColor>0x00FF6699</FillColor>
       <TextColor>0x00FFFFFF</TextColor>
       <BackColor>0x00FFFFFF</BackColor>
     </Style>
@@ -2686,7 +2659,7 @@
       <StyleExFlags>0x40001000</StyleExFlags>
       <FontStyle>0x008110B4</FontStyle>
       <PenColor>0x00FFFFFF</PenColor>
-      <FillColor>0x00FF0000</FillColor>
+      <FillColor>0x0000FF00</FillColor>
       <TextColor>0x00FFFFFF</TextColor>
       <BackColor>0x00FFFFFF</BackColor>
     </Style>
@@ -2695,7 +2668,7 @@
       <StyleExFlags>0x40001000</StyleExFlags>
       <FontStyle>0x008110B4</FontStyle>
       <PenColor>0x00FFFFFF</PenColor>
-      <FillColor>0x00808080</FillColor>
+      <FillColor>0x00FF0000</FillColor>
       <TextColor>0x00FFFFFF</TextColor>
       <BackColor>0x00FFFFFF</BackColor>
     </Style>
@@ -2704,7 +2677,7 @@
       <StyleExFlags>0x40001000</StyleExFlags>
       <FontStyle>0x008110B4</FontStyle>
       <PenColor>0x00FFFFFF</PenColor>
-      <FillColor>0x00008080</FillColor>
+      <FillColor>0x00808080</FillColor>
       <TextColor>0x00FFFFFF</TextColor>
       <BackColor>0x00FFFFFF</BackColor>
     </Style>
@@ -2713,7 +2686,7 @@
       <StyleExFlags>0x40001000</StyleExFlags>
       <FontStyle>0x008110B4</FontStyle>
       <PenColor>0x00FFFFFF</PenColor>
-      <FillColor>0x00800080</FillColor>
+      <FillColor>0x00008080</FillColor>
       <TextColor>0x00FFFFFF</TextColor>
       <BackColor>0x00FFFFFF</BackColor>
     </Style>
@@ -2722,7 +2695,7 @@
       <StyleExFlags>0x40001000</StyleExFlags>
       <FontStyle>0x008110B4</FontStyle>
       <PenColor>0x00FFFFFF</PenColor>
-      <FillColor>0x00000080</FillColor>
+      <FillColor>0x00800080</FillColor>
       <TextColor>0x00FFFFFF</TextColor>
       <BackColor>0x00FFFFFF</BackColor>
     </Style>
@@ -2731,7 +2704,7 @@
       <StyleExFlags>0x40001000</StyleExFlags>
       <FontStyle>0x008110B4</FontStyle>
       <PenColor>0x00FFFFFF</PenColor>
-      <FillColor>0x00808000</FillColor>
+      <FillColor>0x00000080</FillColor>
       <TextColor>0x00FFFFFF</TextColor>
       <BackColor>0x00FFFFFF</BackColor>
     </Style>
@@ -2740,11 +2713,20 @@
       <StyleExFlags>0x40001000</StyleExFlags>
       <FontStyle>0x008110B4</FontStyle>
       <PenColor>0x00FFFFFF</PenColor>
-      <FillColor>0x00008000</FillColor>
+      <FillColor>0x00808000</FillColor>
       <TextColor>0x00FFFFFF</TextColor>
       <BackColor>0x00FFFFFF</BackColor>
     </Style>
     <Style id="36">
+      <StyleFlags>0x01607800</StyleFlags>
+      <StyleExFlags>0x40001000</StyleExFlags>
+      <FontStyle>0x008110B4</FontStyle>
+      <PenColor>0x00FFFFFF</PenColor>
+      <FillColor>0x00008000</FillColor>
+      <TextColor>0x00FFFFFF</TextColor>
+      <BackColor>0x00FFFFFF</BackColor>
+    </Style>
+    <Style id="37">
       <StyleFlags>0x01607800</StyleFlags>
       <StyleExFlags>0x40001000</StyleExFlags>
       <FontStyle>0x008110B4</FontStyle>
