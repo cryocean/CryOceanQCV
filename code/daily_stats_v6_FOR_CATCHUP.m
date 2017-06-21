@@ -25,7 +25,7 @@ path4 = '/noc/users/cryo/QCV_Cryo2/code/';
 path_val = '/noc/mpoc/cryo/cryosat/validation_data/';
 
 % load data for the type (data_type) and day of interest (day_date)
-data = load([path1 data_type '_' day_date '.mat']);
+data = load([path1 day_date(1:4) '/' day_date(5:6) '/' data_type '_' day_date '.mat']);
 data = data.(char(fieldnames(data)));
 DTU10MSS = mss; %#ok
 A = ground; % format appears to be (by row) year, month, day, hr?, min? sec?
@@ -34,19 +34,23 @@ A = ground; % format appears to be (by row) year, month, day, hr?, min? sec?
 %% compute percentage of ocean data per day and orbit
 % This is computed from the ground tracks.
 % will need updating if new ground mask employed
-DO NOT USE AND WATCH OUT FOR VERSION 9
-if datenum(day_date,'yyyymmdd') >= datenum('20160307','yyyymmdd')
-    mask_v = '8';
-    
+if datenum(day_date,'yyyymmdd') >= datenum('20170322','yyyymmdd')
+    mask_v = '9';
+    warning('not sure on EXACT date of change of mode mask need to fill in')
 elseif datenum(day_date,'yyyymmdd') >= datenum('20160307','yyyymmdd')
     mask_v = '8';
 elseif datenum(day_date,'yyyymmdd') >= datenum('20151214','yyyymmdd')
     mask_v = '7';
 elseif datenum(day_date,'yyyymmdd') >= datenum('20141006','yyyymmdd')
     mask_v = '6';
-elseif datenum(day_date,'yyyymmdd') >= datenum('20111231','yyyymmdd')
+elseif datenum(day_date,'yyyymmdd') >= datenum('20140701','yyyymmdd')
+    warning('not sure on EXACT day in July 2014')
     mask_v = '5';
+elseif datenum(day_date,'yyyymmdd') >= datenum('20121001','yyyymmdd')
+    warning('not sure on EXACT day in Oct 2012')
+    mask_v = '4';
 else
+    error('what geographical mode mask version?')
     mask_v = '2';
 end
 load([path4 'mode_mask/seasMask_noLRM_3_' mask_v '.mat']); % mode mask
@@ -325,10 +329,11 @@ ascendingFlag = ascendingFlag(kt);
 
 %% compute statistics and build structure
 % read latecy data
-laten = load([path2 data_type(5:8) 'latency.txt']);
-laten(:,1) = fix(laten(:,1)/(24*3600))+datenum(1970,1,1);
-klaten = ismember(laten(:,1),datenum(day_date,'yyyymmdd'));
-laten = laten(klaten,:)';
+% % % % % % % % % % % % % % laten = load([path2 data_type(5:8) 'latency.txt']);
+% % % % % % % % % % % % % % laten(:,1) = fix(laten(:,1)/(24*3600))+datenum(1970,1,1);
+% % % % % % % % % % % % % % klaten = ismember(laten(:,1),datenum(day_date,'yyyymmdd'));
+% % % % % % % % % % % % % % laten = laten(klaten,:)';
+laten = orbits + NaN;
 
 dataStat.modeSeas = seas;
 dataStat.date = cellstr(datestr(datenum(day_date,'yyyymmdd'),'dd/mm/yyyy'));
@@ -734,23 +739,49 @@ for i=1:length(params)
             dutc = abs(diff(hi_t(:)));
             diffxy = diff(hi_x(:));
             diffxy(dutc > 1) = [];
-            dataStat.(['noiseNOC_' fields{i}]) = nanstd(hi_x);
-            dataStat.(['noiseavgNOC_' fields{i}]) = nanmean(nanstd(hi_x));
-            dataStat.(['noiseStdNOC_' fields{i}]) = nanstd(nanstd(hi_x));
-            dataStat.(['noiseDiffNOC_' fields{i}]) = nanstd(diffxy)/sqrt(2);
-            dataStat.(['noiseDiffMadNOC_' fields{i}]) = nanmedian(abs(diffxy));
-            if strcmp(data_type,'SIR_IOP_L2') || strcmp(data_type,'SIR_GOP_L2')
-                dataStat.(['noiseNOC_inLRM_' fields{i}]) = nanstd(hi_x1);
-                dataStat.(['noiseavgNOC_inLRM_' fields{i}]) = nanmean(nanstd(hi_x1));
-                dataStat.(['noiseStdNOC_inLRM_' fields{i}]) = nanstd(nanstd(hi_x1));
-                dataStat.(['noiseDiffNOC_inLRM_' fields{i}]) = nanstd(diffxy1)/sqrt(2);
-                dataStat.(['noiseDiffMadNOC_inLRM_' fields{i}]) = nanmedian(abs(diffxy1));
-                dataStat.(['noiseNOC_outLRM_' fields{i}]) = nanstd(hi_x2);
-                dataStat.(['noiseavgNOC_outLRM_' fields{i}]) = nanmean(nanstd(hi_x2));
-                dataStat.(['noiseStdNOC_outLRM_' fields{i}]) = nanstd(nanstd(hi_x2));
-                dataStat.(['noiseDiffNOC_outLRM_' fields{i}]) = nanstd(diffxy2)/sqrt(2);
-                dataStat.(['noiseDiffMadNOC_outLRM_' fields{i}]) = nanmedian(abs(diffxy2));
+            
+            
+            if isempty(hi_x)
+                dataStat.(['noiseNOC_' fields{i}]) = NaN(1,20);
+                dataStat.(['noiseavgNOC_' fields{i}]) = NaN(1,20);
+                dataStat.(['noiseStdNOC_' fields{i}]) = NaN(1,20);
+                dataStat.(['noiseDiffNOC_' fields{i}]) = [];
+                dataStat.(['noiseDiffMadNOC_' fields{i}]) = [];
                 
+            else
+                dataStat.(['noiseNOC_' fields{i}]) = nanstd(hi_x);
+                dataStat.(['noiseavgNOC_' fields{i}]) = nanmean(nanstd(hi_x));
+                dataStat.(['noiseStdNOC_' fields{i}]) = nanstd(nanstd(hi_x));
+                dataStat.(['noiseDiffNOC_' fields{i}]) = nanstd(diffxy)/sqrt(2);
+                dataStat.(['noiseDiffMadNOC_' fields{i}]) = nanmedian(abs(diffxy));
+            end
+            
+            
+            if strcmp(data_type,'SIR_IOP_L2') || strcmp(data_type,'SIR_GOP_L2')
+                if isempty(hi_x)
+                    dataStat.(['noiseNOC_inLRM_' fields{i}]) = NaN(1,20);
+                    dataStat.(['noiseavgNOC_inLRM_' fields{i}]) =  NaN(1,20);
+                    dataStat.(['noiseStdNOC_inLRM_' fields{i}]) = NaN(1,20);
+                    dataStat.(['noiseDiffNOC_inLRM_' fields{i}]) = [];
+                    dataStat.(['noiseDiffMadNOC_inLRM_' fields{i}]) = [];
+                    dataStat.(['noiseNOC_outLRM_' fields{i}]) = [];
+                    dataStat.(['noiseavgNOC_outLRM_' fields{i}]) = [];
+                    dataStat.(['noiseStdNOC_outLRM_' fields{i}]) = [];
+                    dataStat.(['noiseDiffNOC_outLRM_' fields{i}]) = [];
+                    dataStat.(['noiseDiffMadNOC_outLRM_' fields{i}]) = [];
+                    
+                else
+                    dataStat.(['noiseNOC_inLRM_' fields{i}]) = nanstd(hi_x1);
+                    dataStat.(['noiseavgNOC_inLRM_' fields{i}]) = nanmean(nanstd(hi_x1));
+                    dataStat.(['noiseStdNOC_inLRM_' fields{i}]) = nanstd(nanstd(hi_x1));
+                    dataStat.(['noiseDiffNOC_inLRM_' fields{i}]) = nanstd(diffxy1)/sqrt(2);
+                    dataStat.(['noiseDiffMadNOC_inLRM_' fields{i}]) = nanmedian(abs(diffxy1));
+                    dataStat.(['noiseNOC_outLRM_' fields{i}]) = nanstd(hi_x2);
+                    dataStat.(['noiseavgNOC_outLRM_' fields{i}]) = nanmean(nanstd(hi_x2));
+                    dataStat.(['noiseStdNOC_outLRM_' fields{i}]) = nanstd(nanstd(hi_x2));
+                    dataStat.(['noiseDiffNOC_outLRM_' fields{i}]) = nanstd(diffxy2)/sqrt(2);
+                    dataStat.(['noiseDiffMadNOC_outLRM_' fields{i}]) = nanmedian(abs(diffxy2));
+                end
             end
         end
         
@@ -835,9 +866,15 @@ end
 dataStat.kInPacificSAR = kin;
 dataStat.kOutPacificSAR = kout;
 
+% check folders exists
+if ~exist([path3 day_date(1:4)],'dir'), mkdir([path3 day_date(1:4)]) , end;
+if ~exist([path3 day_date(1:4) '/' day_date(5:6)],'dir');
+    mkdir([path3 day_date(1:4) '/' day_date(5:6)]) ;
+end;
 
 
-save([path3 'Stats_' data_type '_' day_date '.mat'],'-struct','dataStat')
+
+save([path3 day_date(1:4) '/' day_date(5:6) '/Stats_' data_type '_' day_date '.mat'],'-struct','dataStat')
 
 if strcmp(data_type,'SIR_GOP_L2')
     save([path_val 'dataVal_' data_type '_' day_date '.mat'],'-struct','dataVal')

@@ -36,3 +36,13 @@ DTU*.mat
 .DS_Store
 Thumbs.db
 \._*
+
+
+# Temp files relating to changing how monthly and daily report files read in start and end dates
+
+code/monthlyconfig.txt
+code/dailyconfig.txt
+
+# ignore as only copies for debugging
+*TEST*.py
+

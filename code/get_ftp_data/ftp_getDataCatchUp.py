@@ -29,8 +29,8 @@ HOST = 'science-pds.cryosat.esa.int' #remote hostname (baseline C)
 USER = 'cryosat353' #ftp username
 PASSWD = 'NoHtpQvL' #ftp password
 #data_sets = ('SIR_FDM_L2/2014','SIR_IOP_L2/2014','SIR_GOP_L2/2014') #data to download
-product = ('SIR_FDM_L2','SIR_IOP_L2','SIR_GOP_L2')
-#product = ('SIR_GOP_L2')
+#product = ('SIR_FDM_L2','SIR_IOP_L2','SIR_GOP_L2')
+product = ('SIR_GOP_L2')
 rootR = '/' 
 # UPDATE HERE Jan 2017 
 rootL = '/noc/mpoc/cryo/cryosat/testtesttest' #local path where directory tree will be created
@@ -47,7 +47,7 @@ data_sets = [y+ '/' + x.strftime('%Y/%m') for y in product  for x in [d1,d2,d3]]
 discard = data_sets.pop(2)
 discard = data_sets.pop(4)
 """
-data_sets = ('SIR_GOP_L2/2010')
+data_sets = ('SIR_GOP_L2/2013')
 
 print "time start: " + datetime.now().strftime('%H:%M:%S')
 def main():
@@ -86,17 +86,17 @@ def main():
         rDirs,missFiles,latency = listDir(ftp)       
         
         #Saving latency data
-        if dataSet[0:10] == product[0]:
-            fnFDM = rootL + '/' + product[0] + '/' + "FDM_latency.txt"
-            saveLatency(fnFDM,latency)
-        if dataSet[0:10] == product[1]:
-            fnIOP = rootL + '/' + product[1] + '/' + "IOP_latency.txt"
-            saveLatency(fnIOP,latency)    
+        #if dataSet[0:10] == product[0]:
+        #    fnFDM = rootL + '/' + product[0] + '/' + "FDM_latenceey.txt"
+        #    saveLatency(fnFDM,latency)
+        #if dataSet[0:10] == product[1]:
+        #    fnIOP = rootL + '/' + product[1] + '/' + "IOP_latencyeee.txt"
+        #    saveLatency(fnIOP,latency)    
         if dataSet[0:10] == product[2]:
-            fnGOP = rootL + '/' + product[2] + '/' + "GOP_latency.txt"
+            fnGOP = rootL + '/' + product[2] + '/' + "GOP_latencycatchup.txt"
             saveLatency(fnGOP,latency)
         print "latency data updated\n"
-
+        '''
         if len(missFiles) == 0:
             print "no missing files " + "\n"
             continue
@@ -125,6 +125,7 @@ def main():
                         downloaded = False
                     if downloaded == True:
                         break
+        '''
     ftp.close() #close ftp connection
     os.chdir(rootL) #set local current directory to rootL
     print "time end: " + datetime.now().strftime('%H:%M:%S')

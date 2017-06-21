@@ -1,25 +1,28 @@
- function daily_report_v6_nodisplay_TDS2017(data_type,report_date)
-addpath(genpath('/noc/users/cryo/QCV_Cryo2/code/'))
-%report_date = '20120603'; %yyyymmdd
-% data_type = 'SIR_IOP_2'; % NB L2 has changed to just 2 cf operational data
+function daily_report_v6_nodisplay_catchup(report_date)
 
-if strcmp(data_type , 'SIR_IOP_2');
-    data_type_full = 'SIR_IOP_L2';
-end;
+% updated by Chris Banks April 2017 from daily_report_v6_nodisplay in order
+% to process catchup data ONLY WORKS FOR GOP
+data_type = 'SIR_GOP_L2';
+
+addpath(genpath('/noc/users/cryo/QCV_Cryo2/code/'))
+%report_date = '20161208'; %yyyymmdd
+%data_type = 'SIR_FDM_L2';
+
 
 %  EDIT ALL OF THESE
 % UPDATE HERE JAN 2017
-in_dir = ['/noc/mpoc/cryo/TDS_March_2017/' data_type_full '/'];
-path1 = '/noc/mpoc/cryo/cryosat/daily_stats/TDS/';
-path2 = '/noc/mpoc/cryo/cryosat/daily_data/TDS/';
+in_dir = ['/noc/mpoc/cryo/cryosat/catchup/' data_type '/'];
+path1 = '/noc/mpoc/cryo/cryosat/daily_stats/catchup/';
+path2 = '/noc/mpoc/cryo/cryosat/catchup/data_out/';
 % in_dir = ['/scratch/general/cryosat/' data_type '/'];
 % path1 = '/scratch/general/cryosat/daily_stats/';
 % path2 = '/scratch/general/cryosat/daily_data/';
-dir_out = '/noc/users/cryo/QCV_Cryo2/code/gen_daily_report/figures/I_O_P_TDS/';
+dir_out = '/noc/users/cryo/QCV_Cryo2/code/gen_daily_report/figures/catchup/';
 
 datef = datenum(report_date,'yyyymmdd');
 date0 = datef -29; %30-day window
 t_window = datestr(date0:datef,'yyyymmdd');
+
 
 %------------------ input data for statistics -----------------------------
 path4 = '/noc/users/cryo/QCV_Cryo2/code/';
@@ -29,48 +32,46 @@ load([path4 'gshhs_i.mat']) % shoreline data
 t_window2 = datestr((date0-1):(datef+1),'yyyymmdd');
 fileTracks = [repmat('groundTrack_',32,1) t_window2 repmat('.mat',32,1)];
 A = [];
-
 for i=1:size(fileTracks,1)
     a = load([path4 'groundTracks/' fileTracks(i,:)]);
     A = [A a.A]; %#ok
 end
 % -------------------------------------------------------------------------
 prod = data_type(5:7);
-fid = fopen([dir_out prod '_reportData.txt'],'w');
-fid2 = fopen([dir_out prod '_warnings.txt'],'w');
+fid = fopen([dir_out prod '_reportData_catchup.txt'],'w');
+fid2 = fopen([dir_out prod '_warnings_catchup.txt'],'w');
 
 %% delete unused matlab structure files
 dateEnd = date0-10;
-dateInit = datenum(2014,04,10);
+dateInit = datenum(2010,1,1);
 t_windowDel = datestr(dateInit:dateEnd,'yyyymmdd');
 ndel = size(t_windowDel,1);
-files = [repmat([data_type_full '_'],ndel,1) t_windowDel repmat('.mat',ndel,1)];
-fileStat = [repmat(['Stats_' data_type_full '_'],ndel,1) t_windowDel repmat('.mat',ndel,1)];
-for i=1:size(files,1)
-    if exist([path2 files(i,:)],'file')
-        % delete([path2 files(i,:)])
-        % delete([path2 'sph_' files(i,:)])
-        % delete([path2 'mph_' files(i,:)])
-        % delete([path1 fileStat(i,:)])
-    end
-end
+% this appears to do nothing
+% % % % % % % % % % % files = [repmat([data_type '_'],ndel,1) t_windowDel repmat('.mat',ndel,1)];
+% % % % % % % % % % % fileStat = [repmat(['Stats_' data_type '_'],ndel,1) t_windowDel repmat('.mat',ndel,1)];
 
+% % % % % % % % % % % for i=1:size(files,1)
+% % % % % % % % % % %     if exist([path2 files(i,:)],'file')
+% % % % % % % % % % %         % delete([path2 files(i,:)])
+% % % % % % % % % % %         % delete([path2 'sph_' files(i,:)])
+% % % % % % % % % % %         % delete([path2 'mph_' files(i,:)])
+% % % % % % % % % % %         % delete([path1 fileStat(i,:)])
+% % % % % % % % % % %     end
+% % % % % % % % % % % end
+% % % % % % % % % % %
 %% Ensure data are available in matlab structure, if not process them
-files = [repmat([data_type_full '_'],30,1) t_window repmat('.mat',30,1)];
-fileStat = [repmat(['Stats_' data_type_full '_'],30,1) t_window repmat('.mat',30,1)];
+files = [repmat([data_type '_'],30,1) t_window repmat('.mat',30,1)];
+fileStat = [repmat(['Stats_' data_type '_'],30,1) t_window repmat('.mat',30,1)];
 kempty = false(1,length(files));
 for i=1:size(files,1)
-    if ~exist([path2 files(i,:)],'file')
-        
-        read_cryo2DatavC(in_dir,path2,'20120603','20120603');
-        %         read_cryo2DatavC(in_dir,path2,t_window(i,:),t_window(i,:));
+    if ~exist([path2  files(i,12:15) '/' files(i,16:17)  '/'  files(i,:)],'file')
+        read_cryo2Data_catchup(in_dir,path2,t_window(i,:),t_window(i,:));
     end
-    if i == length(files) && ~exist([path2 files(i,:)],'file')
+    if i == length(files) && ~exist([path2  files(i,12:15) '/' files(i,16:17)  '/' files(i,:)],'file')
         error('dailyReport:noData','There are no data for present day. Exiting...') % exit if no data for present day
-    elseif ~exist([path2 files(i,:)],'file')
-        %         dailyEmptyStats(t_window(i,:),data_type_full,path1); % create empty structure if no data
-        dailyEmptyStats(t_window(i,:),data_type_full,path1); % create empty structure if no data
-        
+    elseif ~exist([path2 files(i,12:15) '/' files(i,16:17)  '/'  files(i,:)],'file')
+        error('not updated for catchup after here')
+        dailyEmptyStats(t_window(i,:),data_type,path1); % create empty structure if no data
         kempty(i) = true;
     end
 end
@@ -79,13 +80,15 @@ end
 data = struct([]);
 corrections = struct([]);
 for i=1:size(fileStat,1)
-    if ~exist([path1 fileStat(i,:)],'file')
-        sorted to here
-        daily_stats_v6(t_window(i,:),data_type_full,path2,in_dir,path1, ...
+    %     if ~exist([path1  fileStat(i,18:21) '/' fileStat(i,22:23)  '/' fileStat(i,:)],'file')
+    
+    if ~exist([path1  fileStat(i,18:21) '/' fileStat(i,22:23)  '/' fileStat(i,:)],'file')
+        %     if ~exist([path1    fileStat(i,:)],'file')
+        daily_stats_v6_FOR_CATCHUP(t_window(i,:),data_type,path2,in_dir,path1, ...
             DTU10MSS,gshhs_i,A);
     end
-    data = [data load([path1 fileStat(i,:)])]; %#ok
-    tmp = load([path1 fileStat(i,:)]);
+    data = [data load([path1 fileStat(i,18:21) '/' fileStat(i,22:23) '/' fileStat(i,:)])]; %#ok
+    tmp = load([path1   fileStat(i,18:21) '/' fileStat(i,22:23)  '/' fileStat(i,:)]);
     corrections = [corrections tmp.corrections]; %#ok
 end
 
@@ -101,7 +104,7 @@ end
 y_swh = data(end).swh;
 y_noise2DHist_inLRM = data(end).noise_ssha4scatter_inLRM;
 nan_2DHist_inLRM = data(end).nan2DHist_inLRM;
-if(strcmp(data_type,'SIR_IOP_2') || strcmp(data_type,'SIR_GOP_2'))
+if(strcmp(data_type,'SIR_IOP_L2') || strcmp(data_type,'SIR_GOP_L2'))
     y_noise2DHist_outLRM = data(end).noise_ssha4scatter_outLRM;
     nan_2DHist_outLRM = data(end).nan2DHist_outLRM;
     seas = data(end).modeSeas;
@@ -193,7 +196,7 @@ editAllSigma0 = data.percEditAllSigma0(end);
 %% Data latency
 laten = data.laten;
 tlaten = laten(1,:);
-laten = laten(2,:);
+laten = laten(1,:);
 
 % ------------------- modified on 28 Sep 2016 -----------------------------
 if any(kempty)
@@ -215,7 +218,7 @@ if strcmp(data_type,'SIR_FDM_L2')
     xhist2 = [0 14];
     laten_thr = 3;
     laten_3MAD = 6.4; %6.4 = median + 1.48*3*MAD. MAD = 0.96, median = 2.16
-elseif strcmp(data_type,'SIR_IOP_2') || strcmp(data_type,'SIR_GOP_2')
+elseif strcmp(data_type,'SIR_IOP_L2') || strcmp(data_type,'SIR_GOP_L2')
     laten = laten./24;
     units_laten = 'days ';
     xvalues = 0:0.2:5;
@@ -223,7 +226,7 @@ elseif strcmp(data_type,'SIR_IOP_2') || strcmp(data_type,'SIR_GOP_2')
     laten_3MAD = 3;
     xhist = [0.5 3.5];
     xhtick = 0:0.5:8;
-    if strcmp(data_type,'SIR_IOP_2')
+    if strcmp(data_type,'SIR_IOP_L2')
         ytick = 0.5:0.5:30;
     else
         ytick = 25:1:50;
@@ -238,160 +241,160 @@ rgb3 = [220/255 221/255 216/255];
 
 %plot box and whiskers
 close all
-tlatenU = unique(tlaten);
-kj = tlaten == max(tlatenU);
-mlaten = median(laten(kj)); % median of latency
-%latenup = mlaten+std(laten(kj)); % upper range median 1-sigma
-%latendown = mlaten-std(laten(kj)); % lower range median 1-sigma
-%latendown = max(latendown,0);
-latendown = min(laten(kj));
-latenup = max(laten(kj));
-fprintf(fid,'%3.1f %3.1f %3.1f\n',[mlaten latendown latenup]);
-pr = zeros(2,length(tlatenU));
-perc_3d = zeros(length(tlatenU),1); % percentage of data delivered in time
-muLaten = zeros(length(tlatenU),1);
-medianLaten = zeros(length(tlatenU),1);
-sigLaten = zeros(length(tlatenU),1);
-ptile = [5 95]; % whiskers percentiles
-for f=1:length(tlatenU)
-    kj = tlaten == tlatenU(f);
-    pr(:,f) = prctile(laten(kj),ptile);
-    perc_3d(f) = sum(laten(kj) <= 3)/sum(kj)*100;
-    muLaten(f) = mean(laten(kj));
-    medianLaten(f) = median(laten(kj));
-    sigLaten(f) = std(laten(kj));
-    if f == length(tlatenU)
-        perc_3MAD = sum(laten(kj) >= laten_3MAD)/sum(kj)*100;
-    end
-end
-if perc_3MAD > 0
-    fprintf(fid2,'%s\n','latency_fail');
-    fprintf(fid2,'%3.1f\n',perc_3MAD);
-end
-if muLaten(end) > laten_thr
-    fprintf(fid2,'%s\n','latency_mean_high');
-    fprintf(fid2,'%2.1f\n',muLaten(end));
-end
-
-pmax = max(pr(2,:));
-pmin = min(pr(1,:));
-xp = 1:length(muLaten);
-if strcmp(data_type,'SIR_IOP_2')
-    yup = 3.7;
-    yup2 = 8.3;
-    ylab = '% delivered within 3 days';
-elseif strcmp(data_type,'SIR_FDM_L2')
-    yup = 5.2;
-    yup2 = 12.3;
-    ylab = '% delivered within 3 hours';
-end
-
-
-hold on
-% --------------------------- compute ylim --------------------------------
-yup3 = max(pmax+0.1*abs(pmax-pmin),yup);
-ylim1 = max(pmin-0.1*abs(pmax-pmin),0.1);
-ylim2 = min(yup2,yup3);
-% -------------------------------------------------------------------------
-
-% ---------------------- highlight present day box ------------------------
-% Using patch resulted in strange behaviour after having added the
-% threshold of 3 hours/days. As an alternative we use rectangle:
-prect = [ndays-0.5,ylim1,1.5,ylim2-ylim1];
-rectangle('Position',prect,'FaceColor',[1 1 0], ...
-    'EdgeColor','none')
-% -------------------------------------------------------- end highlighting
-boxWhiskers(laten,tlaten,units_laten,dates,rgb3,'black',ptile)
-set(findobj(gcf,'tag','Outliers'),'Visible','off') % remove outliers
-ylim([ylim1 ylim2])
-hs = shadedErrorBar(xp,muLaten',sigLaten',{'-','color',rgb2, ...
-    'LineWidth',1.5,'markerfacecolor',rgb2},1);
-set(gca,'YTick',ytick,'YAxisLocation','left','box','off')
-set(hs.edge,'LineStyle','--','color',rgb2)
-set(hs.patch,'Facecolor','none')
-set(gcf,'PaperUnits', 'centimeters','PaperPosition', [0.5 0.5 12.6 9.5]);
-set(gca,'Units','centimeters','Position',[1 1.45 10.5 6.5])
-hax1 = gca;
-hax1_pos = get(hax1,'Position');
-hax2 = axes('YAxisLocation','right','Color','none','LineWidth',1,...
-    'YColor',rgb1,'XAxisLocation','top','XTick',0:5:ndays, ...
-    'XTickLabel',[],'NextPlot','add','Xlim',[0 ndays+1],'Units','centimeters');
-plot(hax2,xp,perc_3d,'Color',rgb1,'LineWidth',0.8)%right axis
-set(hax2,'Position',hax1_pos,'Ylim',[min(perc_3d)-10 110],'YTick',0:5:110)
-set(hax1,'YTick',0:0.5:10)
-ytickl = get(hax1,'YTickLabel');
-if size(ytickl,1) > 10
-    set(hax1,'YTick',1:2:13);
-end
-% collocate the 100% tick in the right axis with the last tick in the
-% left axis
-l2 = min(perc_3d)-10;
-lim1 = get(hax1,'ylim');
-w1 = diff(lim1);
-ytickl = str2num(get(hax1,'YTickLabel')); %#ok
-if strcmp(data_type,'SIR_FDM_L2')
-    d1 = lim1(2)-ytickl(end);
-else
-    d1 = lim1(2)-ytickl(end);
-end
-u2 = (100*w1-d1*l2)/(w1-d1);
-set(hax2,'ylim',[l2 u2])
-% ---------------------------- end collocating
-ytickr = get(hax2,'YTickLabel');
-if size(ytickr,1) > 10
-    set(hax2,'YTick',0:20:110);
-end
-hlab = ylabel(ylab);
-hlab_pos = get(hlab,'Position');
-hlab_pos(1) = hlab_pos(1);
-set(hlab,'Position',hlab_pos)
-hlab2 = get(hax1,'ylabel');
-hlab2_pos = get(hlab2,'Position');
-hlab2_pos(1) = hlab2_pos(1)+0.2;
-set(hlab2,'Position',hlab2_pos)
-rotateXLabels(hax1,45)
-% -----------------------------------highlight present day box with a patch
-% yl = get(hax1,'ylim');
-% xl = get(hax1,'xlim');
-% xv = [29.5 29.5 xl(2) xl(2)];
-% yv = [yl(1) yl(2) yl(2) yl(1)];
-% patch(xv,yv,-1e+1.*ones(size(xv)),[1 1 0],'FaceAlpha',1, ...
-%     'EdgeColor','none','Parent',hax1);
-% -------------------------------------------------------- end highlighting
-plot(hax2,xp(end),perc_3d(end),'o','Color','black','MarkerSize',5, ...
-    'MarkerFaceColor','black')%right axis
-plot(hax1,[-1 50],[3 3],'Color','black','LineWidth',0.8)%left axis
-set(hax1,'Layer','top')
-set(gcf, 'PaperPositionMode', 'manual');
-print('-depsc',[dir_out prod '_Fig_1'],'-r300') % save figure 1
-close all
+% % % % % % % % % % % % % % tlatenU = unique(tlaten);
+% % % % % % % % % % % % % % kj = tlaten == max(tlatenU);
+% % % % % % % % % % % % % % mlaten = median(laten(kj)); % median of latency
+% % % % % % % % % % % % % % %latenup = mlaten+std(laten(kj)); % upper range median 1-sigma
+% % % % % % % % % % % % % % %latendown = mlaten-std(laten(kj)); % lower range median 1-sigma
+% % % % % % % % % % % % % % %latendown = max(latendown,0);
+% % % % % % % % % % % % % % latendown = min(laten(kj));
+% % % % % % % % % % % % % % latenup = max(laten(kj));
+% % % % % % % % % % % % % % fprintf(fid,'%3.1f %3.1f %3.1f\n',[mlaten latendown latenup]);
+% % % % % % % % % % % % % % pr = zeros(2,length(tlatenU));
+% % % % % % % % % % % % % % perc_3d = zeros(length(tlatenU),1); % percentage of data delivered in time
+% % % % % % % % % % % % % % muLaten = zeros(length(tlatenU),1);
+% % % % % % % % % % % % % % medianLaten = zeros(length(tlatenU),1);
+% % % % % % % % % % % % % % sigLaten = zeros(length(tlatenU),1);
+% % % % % % % % % % % % % % ptile = [5 95]; % whiskers percentiles
+% % % % % % % % % % % % % % for f=1:length(tlatenU)
+% % % % % % % % % % % % % %     kj = tlaten == tlatenU(f);
+% % % % % % % % % % % % % %     pr(:,f) = prctile(laten(kj),ptile);
+% % % % % % % % % % % % % %     perc_3d(f) = sum(laten(kj) <= 3)/sum(kj)*100;
+% % % % % % % % % % % % % %     muLaten(f) = mean(laten(kj));
+% % % % % % % % % % % % % %     medianLaten(f) = median(laten(kj));
+% % % % % % % % % % % % % %     sigLaten(f) = std(laten(kj));
+% % % % % % % % % % % % % %     if f == length(tlatenU)
+% % % % % % % % % % % % % %         perc_3MAD = sum(laten(kj) >= laten_3MAD)/sum(kj)*100;
+% % % % % % % % % % % % % %     end
+% % % % % % % % % % % % % % end
+% % % % % % % % % % % % % % if perc_3MAD > 0
+% % % % % % % % % % % % % %     fprintf(fid2,'%s\n','latency_fail');
+% % % % % % % % % % % % % %     fprintf(fid2,'%3.1f\n',perc_3MAD);
+% % % % % % % % % % % % % % end
+% % % % % % % % % % % % % % if muLaten(end) > laten_thr
+% % % % % % % % % % % % % %     fprintf(fid2,'%s\n','latency_mean_high');
+% % % % % % % % % % % % % %     fprintf(fid2,'%2.1f\n',muLaten(end));
+% % % % % % % % % % % % % % end
+% % % % % % % % % % % % % %
+% % % % % % % % % % % % % % pmax = max(pr(2,:));
+% % % % % % % % % % % % % % pmin = min(pr(1,:));
+% % % % % % % % % % % % % % xp = 1:length(muLaten);
+% % % % % % % % % % % % % % if strcmp(data_type,'SIR_IOP_L2')
+% % % % % % % % % % % % % %     yup = 3.7;
+% % % % % % % % % % % % % %     yup2 = 8.3;
+% % % % % % % % % % % % % %     ylab = '% delivered within 3 days';
+% % % % % % % % % % % % % % elseif strcmp(data_type,'SIR_FDM_L2')
+% % % % % % % % % % % % % %     yup = 5.2;
+% % % % % % % % % % % % % %     yup2 = 12.3;
+% % % % % % % % % % % % % %     ylab = '% delivered within 3 hours';
+% % % % % % % % % % % % % % end
+% % % % % % % % % % % % % %
+% % % % % % % % % % % % % %
+% % % % % % % % % % % % % % hold on
+% % % % % % % % % % % % % % % --------------------------- compute ylim --------------------------------
+% % % % % % % % % % % % % % yup3 = max(pmax+0.1*abs(pmax-pmin),yup);
+% % % % % % % % % % % % % % ylim1 = max(pmin-0.1*abs(pmax-pmin),0.1);
+% % % % % % % % % % % % % % ylim2 = min(yup2,yup3);
+% % % % % % % % % % % % % % % -------------------------------------------------------------------------
+% % % % % % % % % % % % % %
+% % % % % % % % % % % % % % % ---------------------- highlight present day box ------------------------
+% % % % % % % % % % % % % % % Using patch resulted in strange behaviour after having added the
+% % % % % % % % % % % % % % % threshold of 3 hours/days. As an alternative we use rectangle:
+% % % % % % % % % % % % % % prect = [ndays-0.5,ylim1,1.5,ylim2-ylim1];
+% % % % % % % % % % % % % % rectangle('Position',prect,'FaceColor',[1 1 0], ...
+% % % % % % % % % % % % % %     'EdgeColor','none')
+% % % % % % % % % % % % % % % -------------------------------------------------------- end highlighting
+% % % % % % % % % % % % % % boxWhiskers(laten,tlaten,units_laten,dates,rgb3,'black',ptile)
+% % % % % % % % % % % % % % set(findobj(gcf,'tag','Outliers'),'Visible','off') % remove outliers
+% % % % % % % % % % % % % % ylim([ylim1 ylim2])
+% % % % % % % % % % % % % % hs = shadedErrorBar(xp,muLaten',sigLaten',{'-','color',rgb2, ...
+% % % % % % % % % % % % % %     'LineWidth',1.5,'markerfacecolor',rgb2},1);
+% % % % % % % % % % % % % % set(gca,'YTick',ytick,'YAxisLocation','left','box','off')
+% % % % % % % % % % % % % % set(hs.edge,'LineStyle','--','color',rgb2)
+% % % % % % % % % % % % % % set(hs.patch,'Facecolor','none')
+% % % % % % % % % % % % % % set(gcf,'PaperUnits', 'centimeters','PaperPosition', [0.5 0.5 12.6 9.5]);
+% % % % % % % % % % % % % % set(gca,'Units','centimeters','Position',[1 1.45 10.5 6.5])
+% % % % % % % % % % % % % % hax1 = gca;
+% % % % % % % % % % % % % % hax1_pos = get(hax1,'Position');
+% % % % % % % % % % % % % % hax2 = axes('YAxisLocation','right','Color','none','LineWidth',1,...
+% % % % % % % % % % % % % %     'YColor',rgb1,'XAxisLocation','top','XTick',0:5:ndays, ...
+% % % % % % % % % % % % % %     'XTickLabel',[],'NextPlot','add','Xlim',[0 ndays+1],'Units','centimeters');
+% % % % % % % % % % % % % % plot(hax2,xp,perc_3d,'Color',rgb1,'LineWidth',0.8)%right axis
+% % % % % % % % % % % % % % set(hax2,'Position',hax1_pos,'Ylim',[min(perc_3d)-10 110],'YTick',0:5:110)
+% % % % % % % % % % % % % % set(hax1,'YTick',0:0.5:10)
+% % % % % % % % % % % % % % ytickl = get(hax1,'YTickLabel');
+% % % % % % % % % % % % % % if size(ytickl,1) > 10
+% % % % % % % % % % % % % %     set(hax1,'YTick',1:2:13);
+% % % % % % % % % % % % % % end
+% % % % % % % % % % % % % % % collocate the 100% tick in the right axis with the last tick in the
+% % % % % % % % % % % % % % % left axis
+% % % % % % % % % % % % % % l2 = min(perc_3d)-10;
+% % % % % % % % % % % % % % lim1 = get(hax1,'ylim');
+% % % % % % % % % % % % % % w1 = diff(lim1);
+% % % % % % % % % % % % % % ytickl = str2num(get(hax1,'YTickLabel')); %#ok
+% % % % % % % % % % % % % % if strcmp(data_type,'SIR_FDM_L2')
+% % % % % % % % % % % % % %     d1 = lim1(2)-ytickl(end);
+% % % % % % % % % % % % % % else
+% % % % % % % % % % % % % %     d1 = lim1(2)-ytickl(end);
+% % % % % % % % % % % % % % end
+% % % % % % % % % % % % % % u2 = (100*w1-d1*l2)/(w1-d1);
+% % % % % % % % % % % % % % set(hax2,'ylim',[l2 u2])
+% % % % % % % % % % % % % % % ---------------------------- end collocating
+% % % % % % % % % % % % % % ytickr = get(hax2,'YTickLabel');
+% % % % % % % % % % % % % % if size(ytickr,1) > 10
+% % % % % % % % % % % % % %     set(hax2,'YTick',0:20:110);
+% % % % % % % % % % % % % % end
+% % % % % % % % % % % % % % hlab = ylabel(ylab);
+% % % % % % % % % % % % % % hlab_pos = get(hlab,'Position');
+% % % % % % % % % % % % % % hlab_pos(1) = hlab_pos(1);
+% % % % % % % % % % % % % % set(hlab,'Position',hlab_pos)
+% % % % % % % % % % % % % % hlab2 = get(hax1,'ylabel');
+% % % % % % % % % % % % % % hlab2_pos = get(hlab2,'Position');
+% % % % % % % % % % % % % % hlab2_pos(1) = hlab2_pos(1)+0.2;
+% % % % % % % % % % % % % % set(hlab2,'Position',hlab2_pos)
+% % % % % % % % % % % % % % rotateXLabels(hax1,45)
+% % % % % % % % % % % % % % % -----------------------------------highlight present day box with a patch
+% % % % % % % % % % % % % % % yl = get(hax1,'ylim');
+% % % % % % % % % % % % % % % xl = get(hax1,'xlim');
+% % % % % % % % % % % % % % % xv = [29.5 29.5 xl(2) xl(2)];
+% % % % % % % % % % % % % % % yv = [yl(1) yl(2) yl(2) yl(1)];
+% % % % % % % % % % % % % % % patch(xv,yv,-1e+1.*ones(size(xv)),[1 1 0],'FaceAlpha',1, ...
+% % % % % % % % % % % % % % %     'EdgeColor','none','Parent',hax1);
+% % % % % % % % % % % % % % % -------------------------------------------------------- end highlighting
+% % % % % % % % % % % % % % plot(hax2,xp(end),perc_3d(end),'o','Color','black','MarkerSize',5, ...
+% % % % % % % % % % % % % %     'MarkerFaceColor','black')%right axis
+% % % % % % % % % % % % % % plot(hax1,[-1 50],[3 3],'Color','black','LineWidth',0.8)%left axis
+% % % % % % % % % % % % % % set(hax1,'Layer','top')
+% % % % % % % % % % % % % % set(gcf, 'PaperPositionMode', 'manual');
+% % % % % % % % % % % % % % print('-depsc',[dir_out prod '_Fig_1'],'-r300') % save figure 1
+% % % % % % % % % % % % % % close all
 
 % ----------------- plot latency histogram for report day -----------------
-figure(2)
-kj = tlaten == max(tlatenU);
-xx = laten(kj);
-if strcmp(data_type,'SIR_FDM_L2')
-    if max(xx) < 9
-        xx(abs(xx) > 8) = NaN;
-        xhist = xhist1;
-    else
-        xx(abs(xx) > 14) = NaN;
-        xhist = xhist2;
-    end
-else
-    xx(abs(xx) > 3.5) = NaN;
-end
-set(gcf,'PaperUnits', 'centimeters','PaperPosition', [0.5 0.5 7.4 6.3]);
-set(gca,'Units','centimeters','Position',[1.1 1.1 6 5])
-hist(xx,xvalues);
-hh = findobj(gca,'Type','patch');
-set(hh,'FaceColor',rgb2,'EdgeColor','w')
-set(gca,'FontSize',8,'XTick',xhtick,'TickDir','out')
-xlabel(['Latency (' units_laten ')'])
-xlim(xhist)
-set(gcf, 'PaperPositionMode', 'manual')
-print('-depsc',[dir_out prod '_Fig_2'],'-r300') % save figure
-close all
+% % % % % % % % % % % % % % % % % % % figure(2)
+% % % % % % % % % % % % % % % % % % % kj = tlaten == max(tlatenU);
+% % % % % % % % % % % % % % % % % % % xx = laten(kj);
+% % % % % % % % % % % % % % % % % % % if strcmp(data_type,'SIR_FDM_L2')
+% % % % % % % % % % % % % % % % % % %     if max(xx) < 9
+% % % % % % % % % % % % % % % % % % %         xx(abs(xx) > 8) = NaN;
+% % % % % % % % % % % % % % % % % % %         xhist = xhist1;
+% % % % % % % % % % % % % % % % % % %     else
+% % % % % % % % % % % % % % % % % % %         xx(abs(xx) > 14) = NaN;
+% % % % % % % % % % % % % % % % % % %         xhist = xhist2;
+% % % % % % % % % % % % % % % % % % %     end
+% % % % % % % % % % % % % % % % % % % else
+% % % % % % % % % % % % % % % % % % %     xx(abs(xx) > 3.5) = NaN;
+% % % % % % % % % % % % % % % % % % % end
+% % % % % % % % % % % % % % % % % % % set(gcf,'PaperUnits', 'centimeters','PaperPosition', [0.5 0.5 7.4 6.3]);
+% % % % % % % % % % % % % % % % % % % set(gca,'Units','centimeters','Position',[1.1 1.1 6 5])
+% % % % % % % % % % % % % % % % % % % hist(xx,xvalues);
+% % % % % % % % % % % % % % % % % % % hh = findobj(gca,'Type','patch');
+% % % % % % % % % % % % % % % % % % % set(hh,'FaceColor',rgb2,'EdgeColor','w')
+% % % % % % % % % % % % % % % % % % % set(gca,'FontSize',8,'XTick',xhtick,'TickDir','out')
+% % % % % % % % % % % % % % % % % % % xlabel(['Latency (' units_laten ')'])
+% % % % % % % % % % % % % % % % % % % xlim(xhist)
+% % % % % % % % % % % % % % % % % % % set(gcf, 'PaperPositionMode', 'manual')
+% % % % % % % % % % % % % % % % % % % print('-depsc',[dir_out prod '_Fig_2'],'-r300') % save figure
+% % % % % % % % % % % % % % % % % % % close all
 % ----------------------------------------------------end latency histogram
 
 
@@ -593,7 +596,7 @@ for j=1:length(params) % loop over all parameters
     xposTab = [4.5,5.7,5.4,5.5,5.5];
     
     strCol = {'p5','p25','median','p75','p95','mean','std'};
-    if(strcmp(data_type,'SIR_IOP_2') || strcmp(data_type,'SIR_GOP_2'))
+    if(strcmp(data_type,'SIR_IOP_L2') || strcmp(data_type,'SIR_GOP_L2'))
         cmax = [20,8,15,20,5];
         cmin = [-20,0,6,0,0];
         strCol = [{'Mode'} strCol]; %#ok
@@ -626,7 +629,7 @@ for j=1:length(params) % loop over all parameters
     yin = latx(ix(end):end);
     xin = lonx(ix(end):end);
     zin = x(ix(end):end).*scale(j); %
-    if j == 5 && strcmp(data_type,'SIR_IOP_2')
+    if j == 5 && strcmp(data_type,'SIR_IOP_L2')
         xout = xin(zin < 0);
         yout = yin(zin < 0);
         xin = xin(zin > 0);
@@ -638,10 +641,10 @@ for j=1:length(params) % loop over all parameters
     pos = [10.5 9];
     plot_map_nodisplay(cnt,xin,yin,zin,cmax(j),cmin(j),cytick(j), ...
         units{j},titl,pPos,pos);
-    if j == 5 && strcmp(data_type,'SIR_IOP_2')
+    if j == 5 && strcmp(data_type,'SIR_IOP_L2')
         plotm(yout,xout,'o','MarkerSize',2,'Color',[0.3 0.3 0.3])
     end
-    if(strcmp(data_type,'SIR_IOP_2') || strcmp(data_type,'SIR_GOP_2'))
+    if(strcmp(data_type,'SIR_IOP_L2') || strcmp(data_type,'SIR_GOP_L2'))
         xposTab = [4.8,5.7,5.4,5.5,5.5];
         sr = {'LRM','PLRM'};
         ht = plotTable(sr,strCol,[dat_tab;dat_tab2],[xposTab(j) 0.48],7,1);
@@ -663,7 +666,7 @@ for j=1:length(params) % loop over all parameters
         {'off-nadir angle '}]; %#ok
     
     ylab = ['Percentage relative to theory (%) ']; %#ok
-    if j == 5 && strcmp(data_type,'SIR_IOP_2')
+    if j == 5 && strcmp(data_type,'SIR_IOP_L2')
         leg = {'All values ','Only positive values '};%#ok
     else
         leg = [];%#ok
@@ -673,7 +676,7 @@ for j=1:length(params) % loop over all parameters
     
     mua = nanmean(percRecxTheor);
     stda = nanstd(percRecxTheor);
-    if j == 5 && strcmp(data_type,'SIR_IOP_2')
+    if j == 5 && strcmp(data_type,'SIR_IOP_L2')
         mub = nanmean(percRecxTheorPos);
         stdb = nanstd(percRecxTheorPos);
         leg1 = {['All values (\mu = ' sprintf('%0.1f',mua), ...
@@ -716,7 +719,7 @@ for j=1:length(params) % loop over all parameters
     
     % plot histogram
     cnt = cnt+1;
-    if(strcmp(data_type,'SIR_IOP_2') || strcmp(data_type,'SIR_GOP_2'))
+    if(strcmp(data_type,'SIR_IOP_L2') || strcmp(data_type,'SIR_GOP_L2'))
         xtmp = params{j};
         nan_x1 = data.(['validFlag_' vari{j}]) & data.inLRM & data.noPolar;
         nan_x2 = data.(['validFlag_' vari{j}]) & ~data.inLRM & data.noPolar;
@@ -745,7 +748,7 @@ for j=1:length(params) % loop over all parameters
     xmax = [50,12,20,24,6];
     
     xmin = [-50,0,4,0,0];
-    if(strcmp(data_type,'SIR_IOP_2') || strcmp(data_type,'SIR_GOP_2'))
+    if(strcmp(data_type,'SIR_IOP_L2') || strcmp(data_type,'SIR_GOP_L2'))
         xmax(5) = 8;
     end
     xvalues = {-50:2:50,0:0.25:12,4:0.5:20,0:0.5:24,0:0.2:xmax(5)};
@@ -772,7 +775,7 @@ for j=1:length(params) % loop over all parameters
             xx(xx > xmax(5) | xx < xmin(j) | xx == 0) = NaN;
             xx2(xx2 > xmax(5) | xx2 < xmin(j) | xx2 == 0) = NaN;
     end
-    if(strcmp(data_type,'SIR_IOP_2') || strcmp(data_type,'SIR_GOP_2'))
+    if(strcmp(data_type,'SIR_IOP_L2') || strcmp(data_type,'SIR_GOP_L2'))
         [h1,x1] = hist(xx,xvalues{j});
         [h2,x2] = hist(xx2,xvalues{j});
         hold on
@@ -795,7 +798,7 @@ for j=1:length(params) % loop over all parameters
     Dy = py(end)-py(1);
     units = [{'cm '};{'m '};{'dB '};{'m/s '};{'10^{-2} deg^2 '}];
     
-    if(strcmp(data_type,'SIR_IOP_2') || strcmp(data_type,'SIR_GOP_2'))
+    if(strcmp(data_type,'SIR_IOP_L2') || strcmp(data_type,'SIR_GOP_2'))
         if j ~= 5
             fs = 3;
         else
@@ -901,7 +904,7 @@ for j=1:length(params) % loop over all parameters
         if j < 4
             scaleNoise = [100,100,100];
             noiseDiffNoc = 0;
-            if(strcmp(data_type,'SIR_IOP_2') || strcmp(data_type,'SIR_GOP_2'))
+            if(strcmp(data_type,'SIR_IOP_L2') || strcmp(data_type,'SIR_GOP_L2'))
                 recDatex1 = recDate(nan_x & data.inLRM);
                 recDatex2 = recDate(nan_x & ~data.inLRM);
                 [~,ix1] = unique(recDatex1,'first');
@@ -927,7 +930,7 @@ for j=1:length(params) % loop over all parameters
             noiseStdNoc = (data.(['noiseStdNOC_' vari{j}])).*scaleNoise(j);
             
             % save data
-            if(strcmp(data_type,'SIR_IOP_2') || strcmp(data_type,'SIR_GOP_2'))
+            if(strcmp(data_type,'SIR_IOP_L2') || strcmp(data_type,'SIR_GOP_L2'))
                 fprintf(fid,'%.1f\n',meanStdX1(end));
                 fprintf(fid,'%.1f\n',meanStdX2(end));
                 fprintf(fid,'%.1f\n',meanStdX1(end)/sqrt(20));
@@ -947,7 +950,7 @@ for j=1:length(params) % loop over all parameters
                 fprintf(fid,'%.1f\n',noiseDiffNoc(end));
             end
             
-            if(strcmp(data_type,'SIR_IOP_2') || strcmp(data_type,'SIR_GOP_2'))
+            if(strcmp(data_type,'SIR_IOP_L2') || strcmp(data_type,'SIR_GOP_L2'))
                 meanStdXNoc = meanStdXNoc1;
                 noiseStdNoc = noiseStdNoc1;
             end
@@ -966,7 +969,7 @@ for j=1:length(params) % loop over all parameters
             
             strCol = {'p5','p25','median','p75','p95','mean','std'};
             
-            if(strcmp(data_type,'SIR_IOP_2') || strcmp(data_type,'SIR_GOP_2'))
+            if(strcmp(data_type,'SIR_IOP_L2') || strcmp(data_type,'SIR_GOP_L2'))
                 cmax = [17,90,20];
                 cmin = [4,30,6];
                 zin1 = stdX1(ix1(end):end);
@@ -989,7 +992,7 @@ for j=1:length(params) % loop over all parameters
             plot_map_nodisplay(cnt,xin,yin,zin,cmax(j),cmin(j),cytick(j), ...
                 units{j},titl,pPos,pos);
             
-            if(strcmp(data_type,'SIR_IOP_2') || strcmp(data_type,'SIR_GOP_2'))
+            if(strcmp(data_type,'SIR_IOP_L2') || strcmp(data_type,'SIR_GOP_L2'))
                 sr = {'LRM','PLRM'};
                 ht = plotTable(sr,strCol,[dat_tab;dat_tab2],[5.0 0.48],7,1);
                 set(ht(:,1),'FontWeight','bold','BackGroundColor', ...
@@ -1045,14 +1048,14 @@ for j=1:length(params) % loop over all parameters
             cpos(2) = cpos(2)+0.708;
             set(hc,'Position',cpos)
             set(gca,'position',xpos)
-            if(strcmp(data_type,'SIR_IOP_2') || strcmp(data_type,'SIR_GOP_2'))
+            if(strcmp(data_type,'SIR_IOP_L2') || strcmp(data_type,'SIR_GOP_L2'))
                 text(6.7,2,'LRM');
             end
             set(gcf, 'PaperPositionMode', 'manual')
             print('-depsc',[dir_out prod '_Fig_' num2str(cnt)],'-r300') % save figure
             close all
             
-            if(strcmp(data_type,'SIR_IOP_2') || strcmp(data_type,'SIR_GOP_2'))
+            if(strcmp(data_type,'SIR_IOP_L2') || strcmp(data_type,'SIR_GOP_L2'))
                 % plot 2D histogram for Pseudo LRM
                 y = y_swh; % values for present day only
                 nan_xy = nan_2DHist_outLRM; % values for present day only
@@ -1132,7 +1135,7 @@ for j=1:length(params) % loop over all parameters
         
         strCol = {'p5','p25','median','p75','p95','mean','std'};
         
-        if(strcmp(data_type,'SIR_IOP_2') || strcmp(data_type,'SIR_GOP_2'))
+        if(strcmp(data_type,'SIR_IOP_L2') || strcmp(data_type,'SIR_GOP_L2'))
             cmax = [20,8,14,20];
             cmin = [-20,0,7,0];
             strCol = [{'Mode'} strCol]; %#ok
@@ -1173,7 +1176,7 @@ for j=1:length(params) % loop over all parameters
             plotm(latout(ixout(end):end),lonout(ixout(end):end),'o', ...
                 'MarkerSize',2.5,'Color',[0.4 0.4 0.4])
         end
-        if(strcmp(data_type,'SIR_IOP_2') || strcmp(data_type,'SIR_GOP_2'))
+        if(strcmp(data_type,'SIR_IOP_L2') || strcmp(data_type,'SIR_GOP_L2'))
             xposTab = [4.8,5.7,5.4,5.5,5.5];
             sr = {'LRM','PLRM'};
             ht = plotTable(sr,strCol,[dat_tab;dat_tab2],[xposTab(j) 0.48],7,1);
@@ -1192,7 +1195,7 @@ for j=1:length(params) % loop over all parameters
         % plot histogram
         cnt = cnt+1;
         
-        if(strcmp(data_type,'SIR_IOP_2') || strcmp(data_type,'SIR_GOP_2'))
+        if(strcmp(data_type,'SIR_IOP_L2') || strcmp(data_type,'SIR_GOP_L2'))
             xtmp = params{j};
             nan_x1 = nan_x2 & data.inLRM;
             nan_X2 = nan_x2 & ~data.inLRM;
@@ -1236,7 +1239,7 @@ for j=1:length(params) % loop over all parameters
                 xx(xx > 24 | xx == 0) = NaN;
                 xx2(xx2 > 24 | xx2 == 0) = NaN;
         end
-        if(strcmp(data_type,'SIR_IOP_2') || strcmp(data_type,'SIR_GOP_2'))
+        if(strcmp(data_type,'SIR_IOP_L2') || strcmp(data_type,'SIR_GOP_L2'))
             [h1,x1] = hist(xx,xvalues{j});
             [h2,x2] = hist(xx2,xvalues{j});
             hold on
@@ -1260,7 +1263,7 @@ for j=1:length(params) % loop over all parameters
         Dy = py(end)-py(1);
         units = [{'cm '};{'m '};{'dB '};{'m/s '};{'10^{-2} deg^2 '}];
         
-        if(strcmp(data_type,'SIR_IOP_2') || strcmp(data_type,'SIR_GOP_2'))
+        if(strcmp(data_type,'SIR_IOP_L2') || strcmp(data_type,'SIR_GOP_L2'))
             text(px(end)-Dx/3,py(end)-Dy/3.9,['\mu = ', ...
                 sprintf('%0.1f',mu1*scale(j)) ' ' units{j}],'FontSize',8,'color',rgb2);
             text(px(end)-Dx/3,py(end)-Dy*(1/3.9+0.07),['\sigma = ', ...
@@ -1343,7 +1346,7 @@ for j=1:length(params) % loop over all parameters
             hold on
             patch(xv,yv,-1e+9.*ones(size(xv)),[1 1 0],'FaceAlpha',1, ...
                 'EdgeColor','none','Parent',gca);
-            if(strcmp(data_type,'SIR_IOP_2') || strcmp(data_type,'SIR_GOP_2'))
+            if(strcmp(data_type,'SIR_IOP_L2') || strcmp(data_type,'SIR_GOP_L2'))
                 qi1 = data.(['meanNOC_inLRM_' vari{j}]).*scale(j); % added on 28 Sep 2016
                 qi2 = data.(['stdNOC_inLRM_' vari{j}]).*scale(j); % added on 28 Sep 2016
                 % --------------------- modified on 28 Sep 2016 ----------------------------------
@@ -1376,7 +1379,7 @@ for j=1:length(params) % loop over all parameters
                 'XTickLabel',[dates(1:5:end);dates(end)])
             xlim([0 ndays+1])
             box on
-            if(strcmp(data_type,'SIR_IOP_2') || strcmp(data_type,'SIR_GOP_2'))
+            if(strcmp(data_type,'SIR_IOP_L2') || strcmp(data_type,'SIR_GOP_L2'))
                 qi1 = data.(['meanNOC_outLRM_' vari{j}]).*scale(j);
                 qi2 = data.(['stdNOC_outLRM_' vari{j}]).*scale(j);
                 % --------------------- modified on 28 Sep 2016 ----------------------------------
@@ -1419,7 +1422,7 @@ for j=1:length(params) % loop over all parameters
             cnt = cnt+1;
             units = [{'SSH anomaly noise (cm)'};{'SWH noise (cm)'}; ...
                 {'Sigma0 noise (10^{-2} dB)'}];
-            if(strcmp(data_type,'SIR_IOP_2') || strcmp(data_type,'SIR_GOP_2'))
+            if(strcmp(data_type,'SIR_IOP_L2') || strcmp(data_type,'SIR_GOP_L2'))
                 ymax = max(max(meanStdXNoc),max(meanStdXNoc2)) ...
                     +max(max(noiseStdNoc),max(noiseStdNoc2));
                 ymin = min(min(meanStdXNoc),min(meanStdXNoc2)) ...
@@ -1452,7 +1455,7 @@ for j=1:length(params) % loop over all parameters
             end
             % --------------------------------------------------------------------------------
             hs1 = errorbar((1:ndays)',qi1,qi2,'o','color',rgb2,'LineWidth',0.7,'MarkerSize',4,'MarkerFaceColor',rgb2);
-            if(strcmp(data_type,'SIR_IOP_2') || strcmp(data_type,'SIR_GOP_2'))
+            if(strcmp(data_type,'SIR_IOP_L2') || strcmp(data_type,'SIR_GOP_L2'))
                 qi1 = meanStdXNoc2;
                 qi2 = noiseStdNoc2;
                 % --------------------- modified on 28 Sep 2016 ----------------------------------
